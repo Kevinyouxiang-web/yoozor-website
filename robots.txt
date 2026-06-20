@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /products.html
+Allow: /cn/
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+Disallow: /form-config.json
+Disallow: /deploy.sh
+Disallow: /deploy-simple.sh
+
+Sitemap: https://yoozor.com/sitemap.xml
