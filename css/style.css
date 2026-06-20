@@ -918,3 +918,39 @@ footer ul a:hover { color: var(--color-accent); }
   .btn { padding: 12px 24px; font-size: 0.9rem; }
   .contact-form { padding: 24px; }
 }
+
+.product-card.product-card-img { padding: 0 0 28px; overflow: hidden; }
+.product-img-wrapper {
+  width: 100%;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: #f8faff;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  margin-bottom: 20px;
+}
+.product-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.product-card-img:hover .product-img-wrapper img {
+  transform: scale(1.05);
+}
+.product-card-img .category,
+.product-card-img h3,
+.product-card-img p,
+.product-card-img .spec {
+  padding: 0 28px;
+}
+.product-card-img .category {
+  display: block;
+  margin-bottom: 8px;
+}
+.product-card-img p {
+  padding: 0 28px;
+}
+.product-card-img .spec {
+  margin-top: 12px;
+  padding: 12px 28px 0;
+}
