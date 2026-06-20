@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0b1424"/>
+  <rect x="60" y="60" width="1080" height="510" rx="24" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  
+  <!-- Logo mark -->
+  <rect x="130" y="215" width="80" height="80" rx="20" fill="url(#g)"/>
+  <path d="M150 237 L170 257 L190 237" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="170" y1="257" x2="170" y2="275" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a5cff"/>
+      <stop offset="100%" stop-color="#1448cc"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Title -->
+  <text x="240" y="262" font-family="'Inter',sans-serif" font-size="56" font-weight="700" fill="#ffffff" letter-spacing="-0.02">Premium Climate Control Solutions</text>
+  <text x="240" y="315" font-family="'Inter',sans-serif" font-size="28" font-weight="400" fill="rgba(255,255,255,0.5)">Factory direct · 26+ years · 120+ countries</text>
+  
+  <!-- URL -->
+  <rect x="240" y="360" width="200" height="40" rx="20" fill="rgba(255,255,255,0.06)"/>
+  <text x="285" y="386" font-family="'Inter',sans-serif" font-size="16" font-weight="600" fill="#c9a84c">yoozor.com</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="1000" cy="180" r="120" fill="rgba(26,92,255,0.08)"/>
+  <circle cx="1050" cy="450" r="80" fill="rgba(201,168,76,0.06)"/>
+</svg>
