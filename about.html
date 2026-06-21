@@ -58,7 +58,34 @@
     .cert-list { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
     .cert-tag { padding: 8px 20px; border: 1px solid var(--color-border); border-radius: 50px; font-size: 0.85rem; font-weight: 600; }
 
-    @media (max-width: 768px) {
+    
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.gallery-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #f0f4ff;
+}
+.gallery-item-wide {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.gallery-item:hover img { transform: scale(1.03); }
+@media (max-width: 768px) {
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-item-wide { grid-column: span 2; grid-row: span 1; }
+}
+@media (max-width: 768px) {
       .about-grid-2 { grid-template-columns: 1fr; gap: 32px; }
       .about-grid-2.reverse { direction: ltr; }
       .numbers-row { grid-template-columns: repeat(2, 1fr); }
@@ -157,6 +184,34 @@
         <span class="cert-tag">🌍 REACH</span>
         <span class="cert-tag">ISO 9001</span>
         <span class="cert-tag">BSCI</span>
+      </div>
+    </div>
+  </section>
+
+    <!-- Factory Gallery -->
+  <section class="about-section" style="background:var(--color-bg-alt);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Our Factory</span>
+        <h2 class="section-title">200,000m² Smart<br />Manufacturing Base</h2>
+        <p class="section-sub">Three-phase intelligent production base with annual capacity of 3.5 million units.</p>
+      </div>
+      <div class="gallery-grid reveal">
+        <div class="gallery-item gallery-item-wide">
+          <img src="images/factory-workshop.png" alt="Production Workshop" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="images/factory-team.png" alt="R&D Team" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="images/factory-showroom.png" alt="Showroom" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="images/factory-lab.png" alt="TUV Lab" loading="lazy" />
+        </div>
+        <div class="gallery-item">
+          <img src="images/factory-product.png" alt="Product Display" loading="lazy" />
+        </div>
       </div>
     </div>
   </section>
