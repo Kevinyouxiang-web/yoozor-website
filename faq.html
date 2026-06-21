@@ -10,6 +10,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What is the minimum order quantity?","acceptedAnswer":{"@type":"Answer","text":"Our MOQ is typically 500 units per model for OEM orders. Trial orders can be accommodated for stock models."}},
+    {"@type":"Question","name":"What certifications do your products have?","acceptedAnswer":{"@type":"Answer","text":"We offer ETL (USA), CE (Europe), UKCA (UK), RCM (Australia), Energy Star, DOE, RoHS, REACH, ISO 9001, and BSCI certifications."}},
+    {"@type":"Question","name":"What is the typical lead time?","acceptedAnswer":{"@type":"Answer","text":"Standard lead time is 30-45 days from deposit confirmation with a 98%+ on-time shipment rate."}},
+    {"@type":"Question","name":"Do you offer OEM/ODM services?","acceptedAnswer":{"@type":"Answer","text":"Yes! Full OEM/ODM services including custom branding, packaging, labeling, and specification customization. MOQ from 500 units."}},
+    {"@type":"Question","name":"How do I get a quotation?","acceptedAnswer":{"@type":"Answer","text":"Fill out the inquiry form on our website or email evin.ho@yoozor.com. We respond within 24 hours."}}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Yoozor",
+    "item": "https://yoozor.com"
+  }]
+}
+</script>
 </head>
 <body>
   <nav><div class="nav-inner">
@@ -17,7 +42,9 @@
     <div class="nav-links">
       <a href="/">Home</a>
       <a href="/products.html">Products</a>
+        <a href="/services.html">OEM Services</a>
       <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
       <a href="/faq.html" style="color:var(--color-text)">FAQ</a>
       <a href="/#contact" class="nav-cta">Get a Quote</a>
       <span class="lang-switcher"><a href="/faq.html" class="active">EN</a><span class="divider">|</span><a href="/cn/faq.html">中文</a></span>
@@ -120,5 +147,12 @@
       item.classList.toggle('open');
     }
   </script>
+<!-- Sticky WhatsApp Bar -->
+<div class="sticky-wa">
+  <a href="https://wa.me/8612345678901" target="_blank" class="sticky-wa-link" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" width="28" height="28"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="#fff" stroke-width="1.5" fill="none"/></svg>
+    <span>Chat</span>
+  </a>
+</div>
 </body>
 </html>

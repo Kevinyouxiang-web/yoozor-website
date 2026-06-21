@@ -54,4 +54,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url><loc>https://yoozor.com/services.html</loc><lastmod>2026-06-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://yoozor.com/contact.html</loc><lastmod>2026-06-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://yoozor.com/404.html</loc><lastmod>2026-06-21</lastmod><changefreq>yearly</changefreq><priority>0.1</priority></url>
+  <url><loc>https://yoozor.com/cn/services.html</loc><lastmod>2026-06-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://yoozor.com/cn/contact.html</loc><lastmod>2026-06-21</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

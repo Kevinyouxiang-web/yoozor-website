@@ -1089,3 +1089,39 @@ footer ul a:hover { color: var(--color-accent); }
   padding-top: 16px;
 }
 @media (max-width: 768px) { .faq-page { padding: 100px 24px 60px; } }
+
+/* Sticky WhatsApp Bar */
+.sticky-wa {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+}
+.sticky-wa-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 20px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.sticky-wa-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.5);
+}
+@media (max-width: 768px) {
+  .sticky-wa-link span { display: none; }
+  .sticky-wa-link { padding: 12px; }
+}
+
+/* Trust Badges */
+.trust-section { padding: 40px 0; background: var(--color-bg-alt); border-bottom: 1px solid var(--color-border); }
+.trust-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+.trust-item { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; font-weight: 500; color: var(--color-text-light); }
+.trust-item svg { flex-shrink: 0; }
