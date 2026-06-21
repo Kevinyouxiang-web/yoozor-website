@@ -99,3 +99,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+
+// --- Cookie Consent Banner ---
+function getCookieConsent() {
+  return localStorage.getItem('yoozor_cookie_consent');
+}
+
+window.acceptCookies = function() {
+  localStorage.setItem('yoozor_cookie_consent', 'accepted');
+  document.getElementById('cookieBanner').classList.remove('show');
+  // Enable Google Analytics
+  if (typeof gtag === 'function') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+};
+
+window.rejectCookies = function() {
+  localStorage.setItem('yoozor_cookie_consent', 'rejected');
+  document.getElementById('cookieBanner').classList.remove('show');
+  // Disable Google Analytics
+  if (typeof gtag === 'function') {
+    gtag('consent', 'update', { 'analytics_storage': 'denied' });
+  }
+};
+
+// Show banner if no decision made yet
+document.addEventListener('DOMContentLoaded', function() {
+  const consent = getCookieConsent();
+  if (!consent) {
+    setTimeout(() => {
+      const banner = document.getElementById('cookieBanner');
+      if (banner) banner.classList.add('show');
+    }, 500);
+  }
+});

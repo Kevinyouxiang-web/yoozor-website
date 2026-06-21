@@ -75,6 +75,16 @@
 -->
 </head>
 <body>
+<!-- Cookie Consent Banner -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-inner">
+    <p>我们使用 Cookie 来分析网站流量并改善您的体验。继续使用即表示您同意我们的<a href="../privacy-policy.html" style="color:var(--color-gold);text-decoration:underline;">隐私政策</a>。</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-btn-reject" onclick="rejectCookies()">拒绝</button>
+      <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">接受</button>
+    </div>
+  </div>
+</div>
 
   <!-- ==================== NAVIGATION ==================== -->
   <nav>
@@ -87,6 +97,7 @@
         <a href="#products">产品中心</a>
         <a href="#about">关于我们</a>
         <a href="#certifications">资质认证</a>
+        <a href="/cn/faq.html">常见问题</a>
         <a href="#why-us">核心优势</a>
         <a href="#contact" <a href="../catalog.html" class="nav-cta">产品目录</a>
         <a href="#contact" class="nav-cta">获取报价</a>
@@ -354,6 +365,62 @@
     </div>
   </section>
 
+    <!-- ==================== 客户案例 ==================== -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">合作伙伴</span>
+        <h2 class="section-title">全球品牌<br />长期合作伙伴</h2>
+        <p class="section-sub">我们为 120+ 国家的 HVAC 经销商、进口商和品牌提供服务。</p>
+      </div>
+
+      <div class="client-logos reveal">
+        <div class="client-logo-row">
+          <span class="client-logo">🏢 暖通经销商 · 欧盟</span>
+          <span class="client-logo">🏭 OEM 合作伙伴 · 北美</span>
+          <span class="client-logo">📦 Amazon 卖家 · 美国</span>
+          <span class="client-logo">🔧 零售连锁 · 澳洲</span>
+        </div>
+        <div class="client-logo-row">
+          <span class="client-logo">🌍 进口商 · 南美</span>
+          <span class="client-logo">🏪 电商 · 东南亚</span>
+          <span class="client-logo">🏗️ 建筑商 · 中东</span>
+        </div>
+      </div>
+
+      <div class="testimonial-cards reveal reveal-delay-1">
+        <div class="testimonial-card">
+          <div class="testi-stars">★★★★★</div>
+          <p>"Yoozor 已经是我们 3 年的可靠 OEM 合作伙伴。他们的质量控制和准时交货非常出色。529X 系列在欧洲市场销售非常好。"</p>
+          <div class="testi-author">
+            <strong>Thomas Müller</strong>
+            <span>采购经理 · Klima GmbH, 德国</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testi-stars">★★★★★</div>
+          <p>"我们将便携式空调生产线转向 Yoozor 后就没有再换过。他们对美国市场的认证支持为我们节省了数月时间。强烈推荐。"</p>
+          <div class="testi-author">
+            <strong>James Chen</strong>
+            <span>CEO · AirTech Distributors, 美国</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testi-stars">★★★★★</div>
+          <p>"525X 除湿机系列配备 CE 和 RoHS 认证，使我们的欧洲市场进入变得非常顺利。出色的售后支持和灵活的起订量。"</p>
+          <div class="testi-author">
+            <strong>Sarah Williams</strong>
+            <span>采购总监 · EcoClimate Ltd., 英国</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-cta reveal reveal-delay-2">
+        <a href="#contact" class="btn btn-primary">成为我们的下一个合作伙伴 →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== CONTACT ==================== -->
   <section class="contact-section" id="contact">
     <div class="container">
@@ -486,7 +553,8 @@
           <ul>
             <li><a href="#about">公司介绍</a></li>
             <li><a href="#certifications">资质认证</a></li>
-            <li><a href="#why-us">核心优势</a></li>
+            <li><a href="/cn/faq.html">常见问题</a>
+        <a href="#why-us">核心优势</a></li>
           </ul>
         </div>
 
