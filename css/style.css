@@ -1457,6 +1457,12 @@ footer ul li a:hover { color: var(--color-gold); }
   .stats-row-section { grid-template-columns: 1fr 1fr; }
 }
 
+/* Count-up animation */
+.count-up {
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+}
+
 /* === Page Header (for products.html etc) === */
 .page-header {
   padding: 140px 0 60px;
