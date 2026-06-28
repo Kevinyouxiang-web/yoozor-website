@@ -18,23 +18,6 @@
   <meta property="og:url" content="https://yoozor.com/catalog.html" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    :root {
-      --blue: #1a5cff;
-      --gold: #c9a84c;
-      --dark: #0b1424;
-      --text: #1a1a2e;
-      --text-light: #5a6478;
-      --radius: 16px;
-      --radius-sm: 8px;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      color: var(--text);
-      background: #fff;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
     .container-wide { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
     /* Cover */
@@ -43,7 +26,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: var(--dark);
+      background: var(--color-bg-dark);
       color: #fff;
       text-align: center;
       padding: 100px 24px 60px;
@@ -65,7 +48,7 @@
       margin-bottom: 16px;
       position: relative;
     }
-    .catalog-cover h1 span { color: var(--gold); }
+    .catalog-cover h1 span { color: var(--color-gold); }
     .catalog-cover .subtitle {
       font-size: 1.15rem;
       color: rgba(255,255,255,0.5);
@@ -103,18 +86,18 @@
       border-radius: 50px;
       font-size: 0.85rem;
       font-weight: 500;
-      color: var(--text-light);
+      color: var(--color-text-secondary);
       text-decoration: none;
       transition: all 0.2s;
     }
-    .cat-nav a:hover { border-color: var(--blue); color: var(--blue); background: rgba(26,92,255,0.04); }
+    .cat-nav a:hover { border-color: var(--color-accent); color: var(--color-accent); background: rgba(26,92,255,0.04); }
 
     /* Product section */
     .prod-section { padding: 64px 0; border-bottom: 1px solid #f0f0f0; }
     .prod-section:last-child { border-bottom: none; }
     .prod-section-header { margin-bottom: 32px; }
     .prod-section-header h2 { font-size: 1.8rem; margin-bottom: 4px; }
-    .prod-section-header .tagline { color: var(--text-light); font-size: 0.95rem; }
+    .prod-section-header .tagline { color: var(--color-text-secondary); font-size: 0.95rem; }
 
     /* Product card grid */
     .prod-grid {
@@ -124,7 +107,7 @@
     }
     .prod-card {
       border: 1px solid #eee;
-      border-radius: var(--radius);
+      border-radius: var(--radius-lg);
       overflow: hidden;
       transition: all 0.3s;
       background: #fff;
@@ -144,7 +127,7 @@
     .prod-card:hover .prod-card-img img { transform: scale(1.05); }
     .prod-card-body { padding: 20px; }
     .prod-card-body h3 { font-size: 1.1rem; margin-bottom: 4px; }
-    .prod-card-body .model-range { color: var(--text-light); font-size: 0.85rem; margin-bottom: 12px; }
+    .prod-card-body .model-range { color: var(--color-text-secondary); font-size: 0.85rem; margin-bottom: 12px; }
     .prod-card-body .spec-list { list-style: none; }
     .prod-card-body .spec-list li {
       display: flex;
@@ -154,7 +137,7 @@
       font-size: 0.85rem;
     }
     .prod-card-body .spec-list li:last-child { border-bottom: none; }
-    .prod-card-body .spec-list .label { color: var(--text-light); }
+    .prod-card-body .spec-list .label { color: var(--color-text-secondary); }
     .prod-card-body .spec-list .value { font-weight: 600; }
     .prod-card-body .tag {
       display: inline-block;
@@ -177,7 +160,7 @@
       align-items: center;
       margin-bottom: 48px;
       background: #f8faff;
-      border-radius: var(--radius);
+      border-radius: var(--radius-lg);
       overflow: hidden;
     }
     .hero-product.reverse { direction: rtl; }
@@ -189,7 +172,7 @@
     .hero-product-img img { width: 100%; height: 100%; object-fit: cover; }
     .hero-product-info { padding: 40px; }
     .hero-product-info h2 { font-size: 1.6rem; margin-bottom: 8px; }
-    .hero-product-info .desc { color: var(--text-light); margin-bottom: 20px; line-height: 1.7; }
+    .hero-product-info .desc { color: var(--color-text-secondary); margin-bottom: 20px; line-height: 1.7; }
     .hero-product-info .spec-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -201,7 +184,7 @@
       border-radius: var(--radius-sm);
       font-size: 0.85rem;
     }
-    .hero-product-info .spec-item .lbl { font-size: 0.7rem; color: var(--text-light); text-transform: uppercase; display: block; }
+    .hero-product-info .spec-item .lbl { font-size: 0.7rem; color: var(--color-text-secondary); text-transform: uppercase; display: block; }
     .hero-product-info .spec-item .val { font-weight: 600; font-size: 0.95rem; }
 
     /* Spec comparison table */
@@ -212,7 +195,7 @@
       font-size: 0.85rem;
     }
     .spec-table th {
-      background: var(--dark);
+      background: var(--color-bg-dark);
       color: #fff;
       padding: 12px 16px;
       text-align: left;
@@ -226,7 +209,7 @@
       white-space: nowrap;
     }
     .spec-table tr:hover td { background: #f8faff; }
-    .spec-table .param { font-weight: 600; color: var(--text-light); font-size: 0.8rem; }
+    .spec-table .param { font-weight: 600; color: var(--color-text-secondary); font-size: 0.8rem; }
 
     /* Feature rows */
     .feature-row {
@@ -243,7 +226,7 @@
     }
     .feature-item .icon { font-size: 1.5rem; margin-bottom: 8px; display: block; }
     .feature-item h4 { font-size: 0.9rem; margin-bottom: 4px; }
-    .feature-item p { font-size: 0.8rem; color: var(--text-light); }
+    .feature-item p { font-size: 0.8rem; color: var(--color-text-secondary); }
 
     /* Certifications */
     .cert-grid {
@@ -266,7 +249,7 @@
 
     /* Download CTA */
     .download-cta {
-      background: var(--dark);
+      background: var(--color-bg-dark);
       color: #fff;
       text-align: center;
       padding: 64px 24px;
@@ -278,7 +261,7 @@
       align-items: center;
       gap: 8px;
       padding: 14px 32px;
-      background: var(--gold);
+      background: var(--color-gold);
       color: #0b1424;
       border-radius: 50px;
       font-weight: 600;
@@ -320,7 +303,7 @@
     <div class="nav-links">
       <a href="/#products">Products</a>
       <a href="/about.html">About</a>
-      <a href="catalog.html" class="active">Catalog</a>
+      <a href="catalog.html">Catalog</a>
       <a href="/contact.html">Contact</a>
       <a href="/contact.html" class="nav-cta">Get a Quote</a>
       <span class="lang-switcher">
@@ -863,15 +846,15 @@
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:32px;">
     <div style="border-radius:12px;overflow:hidden;">
       <img src="images/products/ac-factory-5.jpg" alt="Portable AC Production" style="width:100%;aspect-ratio:16/9;object-fit:cover;" />
-      <p style="font-size:0.8rem;color:var(--text-light);margin-top:6px;">🏭 200,000m² smart factory — AC production line</p>
+      <p style="font-size:0.8rem;color:var(--color-text-secondary);margin-top:6px;">🏭 200,000m² smart factory — AC production line</p>
     </div>
     <div style="border-radius:12px;overflow:hidden;">
       <img src="images/products/ac-scene-60.jpg" alt="AC Products" style="width:100%;aspect-ratio:16/9;object-fit:cover;" />
-      <p style="font-size:0.8rem;color:var(--text-light);margin-top:6px;">📦 Portable AC units ready for global shipment</p>
+      <p style="font-size:0.8rem;color:var(--color-text-secondary);margin-top:6px;">📦 Portable AC units ready for global shipment</p>
     </div>
     <div style="border-radius:12px;overflow:hidden;">
       <img src="images/products/ac-scene-73.jpg" alt="AC Warehouse" style="width:100%;aspect-ratio:16/9;object-fit:cover;" />
-      <p style="font-size:0.8rem;color:var(--text-light);margin-top:6px;">🌍 Stocking for global export markets</p>
+      <p style="font-size:0.8rem;color:var(--color-text-secondary);margin-top:6px;">🌍 Stocking for global export markets</p>
     </div>
   </div>
 </section>
@@ -1125,19 +1108,19 @@
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
     <div style="border-radius:12px;overflow:hidden;">
       <img src="images/factory-workshop.png" alt="Factory workshop" style="width:100%;aspect-ratio:4/3;object-fit:cover;" />
-      <p style="font-size:0.8rem;color:var(--text-light);margin-top:6px;">📸 Smart manufacturing workshop</p>
+      <p style="font-size:0.8rem;color:var(--color-text-secondary);margin-top:6px;">📸 Smart manufacturing workshop</p>
     </div>
     <div style="border-radius:12px;overflow:hidden;">
       <img src="images/factory-lab.png" alt="Quality lab" style="width:100%;aspect-ratio:4/3;object-fit:cover;" />
-      <p style="font-size:0.8rem;color:var(--text-light);margin-top:6px;">🔬 TUV SUD certified testing lab</p>
+      <p style="font-size:0.8rem;color:var(--color-text-secondary);margin-top:6px;">🔬 TUV SUD certified testing lab</p>
     </div>
     <div style="border-radius:12px;overflow:hidden;">
       <img src="images/factory-showroom.png" alt="Showroom" style="width:100%;aspect-ratio:4/3;object-fit:cover;" />
-      <p style="font-size:0.8rem;color:var(--text-light);margin-top:6px;">🏪 Product showroom</p>
+      <p style="font-size:0.8rem;color:var(--color-text-secondary);margin-top:6px;">🏪 Product showroom</p>
     </div>
     <div style="border-radius:12px;overflow:hidden;">
       <img src="images/factory-team.png" alt="Team" style="width:100%;aspect-ratio:4/3;object-fit:cover;" />
-      <p style="font-size:0.8rem;color:var(--text-light);margin-top:6px;">👥 Export team</p>
+      <p style="font-size:0.8rem;color:var(--color-text-secondary);margin-top:6px;">👥 Export team</p>
     </div>
   </div>
 </section>
@@ -1154,7 +1137,7 @@
         <span class="tag tag-new" style="align-self:flex-start;">FUDA 2026</span>
         <h3 style="color:#fff;font-size:1.5rem;margin:12px 0 8px;">FUDA Company Introduction</h3>
         <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;line-height:1.7;margin-bottom:20px;">Complete company profile with full product range — dehumidifiers, portable AC, OEM capabilities, factory tour, and certification details.</p>
-        <a href="mailto:evin.ho@yoozor.com?subject=Request%20FUDA%202026%20Full%20Catalog" class="btn-gold" style="align-self:flex-start;">📥 Request Full Catalog</a>
+        <a href="mailto:evin.ho@yoozor.com?subject=Request%20FUDA%202026%20Full%20Catalog" class="btn btn-gold" style="align-self:flex-start;">📥 Request Full Catalog</a>
       </div>
     </div>
   </div>
@@ -1191,9 +1174,9 @@
   <h2>📥 Download Product Resources</h2>
   <p>Get the full FUDA catalog, certification documents, spec sheets, and product images.</p>
   <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
-    <a href="mailto:evin.ho@yoozor.com?subject=Request%20Full%20Catalog%20-%20Yoozor" class="btn-gold">📄 Request Full Catalog</a>
-    <a href="mailto:evin.ho@yoozor.com?subject=Request%20Certifications%20-%20Yoozor" class="btn-outline-light">📜 Request Certifications</a>
-    <a href="mailto:evin.ho@yoozor.com?subject=Request%20OEM%20Quote%20-%20Yoozor" class="btn-outline-light">📋 Request OEM Quote</a>
+    <a href="mailto:evin.ho@yoozor.com?subject=Request%20Full%20Catalog%20-%20Yoozor" class="btn btn-gold btn-lg">📄 Request Full Catalog</a>
+    <a href="mailto:evin.ho@yoozor.com?subject=Request%20Certifications%20-%20Yoozor" class="btn btn-outline-light btn-lg">📜 Request Certifications</a>
+    <a href="mailto:evin.ho@yoozor.com?subject=Request%20OEM%20Quote%20-%20Yoozor" class="btn btn-outline-light btn-lg">📋 Request OEM Quote</a>
   </div>
 </section>
 
