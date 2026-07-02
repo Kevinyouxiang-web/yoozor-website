@@ -7,1244 +7,355 @@
   <meta name="description" content="Complete product catalog of Yoozor dehumidifiers and portable air conditioners. 10L-480L/day dehumidifiers, 3,000-20,000 BTU AC units. Factory-direct since 1998." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
-  <link rel="alternate" hreflang="en" href="https://yoozor.com/catalog.html" />
-  <link rel="alternate" hreflang="x-default" href="https://yoozor.com/catalog.html" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="canonical" href="https://yoozor.com/catalog.html" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta property="og:title" content="Yoozor Product Catalog — Dehumidifiers & Portable AC" />
-  <meta property="og:description" content="Browse Yoozor's full product range with specs, images, and certifications." />
-  <meta property="og:image" content="https://yoozor.com/images/og-image.svg" />
-  <meta property="og:url" content="https://yoozor.com/catalog.html" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .container-wide { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-    /* Cover */
-    .catalog-cover {
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: var(--color-bg-dark);
-      color: #fff;
-      text-align: center;
-      padding: 100px 24px 60px;
-      position: relative;
-      overflow: hidden;
-    }
-    .catalog-cover::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background: radial-gradient(ellipse at 30% 50%, rgba(201,168,76,0.08), transparent 60%),
-                  radial-gradient(ellipse at 70% 50%, rgba(26,92,255,0.06), transparent 60%);
-    }
-    .catalog-cover h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 16px;
-      position: relative;
-    }
-    .catalog-cover h1 span { color: var(--color-gold); }
-    .catalog-cover .subtitle {
-      font-size: 1.15rem;
-      color: rgba(255,255,255,0.5);
-      max-width: 600px;
-      margin: 0 auto 32px;
-      position: relative;
-    }
-    .catalog-cover .meta-row {
-      display: flex;
-      justify-content: center;
-      gap: 48px;
-      flex-wrap: wrap;
-      position: relative;
-    }
-    .catalog-cover .meta-item { font-size: 0.85rem; color: rgba(255,255,255,0.35); }
-    .catalog-cover .meta-item strong { color: #fff; display: block; font-size: 1.1rem; }
-
-    /* Category navigation */
     .cat-nav {
       display: flex;
       justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
-      padding: 32px 0;
+      padding: 24px 0;
       position: sticky;
       top: 0;
-      background: rgba(255,255,255,0.95);
+      background: rgba(250,247,242,0.95);
       backdrop-filter: blur(12px);
       z-index: 50;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid var(--color-border);
     }
     .cat-nav a {
-      padding: 8px 20px;
-      border: 1px solid #e0e0e0;
-      border-radius: 50px;
-      font-size: 0.85rem;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
       font-weight: 500;
       color: var(--color-text-secondary);
-      text-decoration: none;
-      transition: all 0.2s;
+      border: 1px solid var(--color-border);
+      transition: var(--transition-base);
     }
-    .cat-nav a:hover { border-color: var(--color-accent); color: var(--color-accent); background: rgba(26,92,255,0.04); }
+    .cat-nav a:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    .cat-nav a.active { background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
 
-    /* Product section */
-    .prod-section { padding: 64px 0; border-bottom: 1px solid #f0f0f0; }
-    .prod-section:last-child { border-bottom: none; }
-    .prod-section-header { margin-bottom: 32px; }
-    .prod-section-header h2 { font-size: 1.8rem; margin-bottom: 4px; }
-    .prod-section-header .tagline { color: var(--color-text-secondary); font-size: 0.95rem; }
-
-    /* Product card grid */
-    .prod-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 24px;
-    }
-    .prod-card {
-      border: 1px solid #eee;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      transition: all 0.3s;
-      background: #fff;
-    }
-    .prod-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.06); transform: translateY(-2px); }
-    .prod-card-img {
-      aspect-ratio: 4/3;
-      overflow: hidden;
-      background: #f6f8fc;
-    }
-    .prod-card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s;
-    }
-    .prod-card:hover .prod-card-img img { transform: scale(1.05); }
-    .prod-card-body { padding: 20px; }
-    .prod-card-body h3 { font-size: 1.1rem; margin-bottom: 4px; }
-    .prod-card-body .model-range { color: var(--color-text-secondary); font-size: 0.85rem; margin-bottom: 12px; }
-    .prod-card-body .spec-list { list-style: none; }
-    .prod-card-body .spec-list li {
-      display: flex;
-      justify-content: space-between;
-      padding: 6px 0;
-      border-bottom: 1px solid #f5f5f5;
-      font-size: 0.85rem;
-    }
-    .prod-card-body .spec-list li:last-child { border-bottom: none; }
-    .prod-card-body .spec-list .label { color: var(--color-text-secondary); }
-    .prod-card-body .spec-list .value { font-weight: 600; }
-    .prod-card-body .tag {
-      display: inline-block;
-      padding: 2px 10px;
-      border-radius: 4px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    .tag-new { background: #dcfce7; color: #166534; }
-    .tag-popular { background: #fef3c7; color: #92400e; }
-    .tag-best { background: #fce7f3; color: #9d174d; }
-    .tag-sale { background: #dbeafe; color: #1e40af; }
-
-    /* Hero product - large featured card */
-    .hero-product {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-      margin-bottom: 48px;
-      background: #f8faff;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-    .hero-product.reverse { direction: rtl; }
-    .hero-product.reverse > * { direction: ltr; }
-    .hero-product-img {
-      min-height: 360px;
-      overflow: hidden;
-    }
-    .hero-product-img img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-product-info { padding: 40px; }
-    .hero-product-info h2 { font-size: 1.6rem; margin-bottom: 8px; }
-    .hero-product-info .desc { color: var(--color-text-secondary); margin-bottom: 20px; line-height: 1.7; }
-    .hero-product-info .spec-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .hero-product-info .spec-item {
-      padding: 10px 14px;
-      background: #fff;
-      border-radius: var(--radius-sm);
-      font-size: 0.85rem;
-    }
-    .hero-product-info .spec-item .lbl { font-size: 0.7rem; color: var(--color-text-secondary); text-transform: uppercase; display: block; }
-    .hero-product-info .spec-item .val { font-weight: 600; font-size: 0.95rem; }
-
-    /* Spec comparison table */
-    .spec-table-wrap { overflow-x: auto; margin: 32px 0; }
-    .spec-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.85rem;
-    }
-    .spec-table th {
-      background: var(--color-bg-dark);
-      color: #fff;
-      padding: 12px 16px;
-      text-align: left;
-      font-weight: 600;
-      font-size: 0.8rem;
-      white-space: nowrap;
-    }
-    .spec-table td {
-      padding: 10px 16px;
-      border-bottom: 1px solid #eee;
-      white-space: nowrap;
-    }
-    .spec-table tr:hover td { background: #f8faff; }
-    .spec-table .param { font-weight: 600; color: var(--color-text-secondary); font-size: 0.8rem; }
-
-    /* Feature rows */
-    .feature-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-    .feature-item {
-      padding: 20px;
-      border: 1px solid #eee;
-      border-radius: var(--radius-sm);
-      text-align: center;
-    }
-    .feature-item .icon { font-size: 1.5rem; margin-bottom: 8px; display: block; }
-    .feature-item h4 { font-size: 0.9rem; margin-bottom: 4px; }
-    .feature-item p { font-size: 0.8rem; color: var(--color-text-secondary); }
-
-    /* Certifications */
-    .cert-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
-    }
-    .cert-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 18px;
-      border: 1px solid #e0e0e0;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-    .cert-badge .flag { font-size: 1rem; }
-
-    /* Download CTA */
-    .download-cta {
-      background: var(--color-bg-dark);
-      color: #fff;
-      text-align: center;
-      padding: 64px 24px;
-    }
-    .download-cta h2 { color: #fff; font-size: 1.8rem; margin-bottom: 8px; }
-    .download-cta p { color: rgba(255,255,255,0.5); max-width: 500px; margin: 0 auto 32px; }
-    .btn-gold {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 32px;
-      background: var(--color-gold);
-      color: #0b1424;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-gold:hover { background: #dbb94d; transform: translateY(-1px); }
-    .btn-outline-light {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 32px;
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #fff;
-      border-radius: 50px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-outline-light:hover { border-color: rgba(255,255,255,0.4); }
-
-    @media (max-width: 768px) {
-      .hero-product { grid-template-columns: 1fr; }
-      .hero-product.reverse { direction: ltr; }
-      .hero-product-info .spec-grid { grid-template-columns: 1fr; }
-      .prod-grid { grid-template-columns: 1fr; }
-    }
+    .product-spec-compact { font-size: 0.82rem; color: var(--color-text-tertiary); display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+    .product-spec-compact span { display: inline-flex; align-items: center; gap: 4px; }
+    .product-spec-compact span::before { content: '•'; color: var(--color-warm); }
   </style>
 </head>
 <body>
 
-<!-- Navigation (reuse same nav) -->
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="images/yoozor-mark.svg" alt="Yoozor" class="nav-mark" />
-      Yoozor
-    </a>
+    <a href="/" class="nav-logo"><img src="images/yoozor-mark.svg" alt="Yoozor" class="nav-mark" /> Yoozor</a>
     <div class="nav-links">
-      <a href="/#products">Products</a>
-      <a href="/about.html">About</a>
-      <a href="catalog.html">Catalog</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/contact.html" class="nav-cta">Get a Quote</a>
-      <span class="lang-switcher">
-        <a href="/" class="active">EN</a>
-        <span class="divider">|</span>
-        <a href="/cn/">中文</a>
-      </span>
+      <a href="index.html">Home</a>
+      <a href="#dehumidifiers">Dehumidifiers</a>
+      <a href="#portable-ac">Portable AC</a>
+      <a href="#industrial">Industrial</a>
+      <a href="#fuda">FUDA Series</a>
+      <a href="contact.html" class="nav-cta">Get a Quote</a>
+      <span class="lang-switcher"><a href="/">EN</a><span class="divider">|</span><a href="/cn/">中文</a></span>
     </div>
-    <button class="menu-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <!-- Cover -->
-<section class="catalog-cover">
-  <h1>📋 <span>Yoozor</span> Product Catalog</h1>
-  <p class="subtitle">Comprehensive range of dehumidifiers and portable air conditioners for global markets. Factory-direct pricing, full certifications, and 26+ years of manufacturing expertise.</p>
-  <div class="meta-row">
-    <div class="meta-item"><strong>80+ Models</strong>Dehumidifiers 10L – 480L/day</div>
-    <div class="meta-item"><strong>20+ Models</strong>Portable AC 3,000 – 26,000 BTU</div>
-    <div class="meta-item"><strong>120+ Countries</strong>Global export coverage</div>
-    <div class="meta-item"><strong>Full Certifications</strong>ETL · CE · Energy Star · UKCA</div>
+<section class="section section-dark" style="padding:140px 0 80px;text-align:center;">
+  <div class="container">
+    <div class="section-label section-label-light" style="justify-content:center;">Product Catalog 2026</div>
+    <h1 class="display-1" style="color:#fff;">Yoozor Product Portfolio</h1>
+    <p style="color:var(--color-text-on-dark-secondary);max-width:600px;margin:16px auto 0;font-size:1.05rem;">
+      Comprehensive range of dehumidifiers and portable air conditioners — engineered for global markets.
+    </p>
+    <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:40px;">
+      <div><strong style="color:#fff;font-size:1.1rem;">50+ Models</strong><br /><span style="font-size:0.82rem;color:rgba(255,255,255,0.35)">Across 6 Series</span></div>
+      <div><strong style="color:#fff;font-size:1.1rem;">10–480 L/Day</strong><br /><span style="font-size:0.82rem;color:rgba(255,255,255,0.35)">Dehumidifier Range</span></div>
+      <div><strong style="color:#fff;font-size:1.1rem;">3K–60K BTU</strong><br /><span style="font-size:0.82rem;color:rgba(255,255,255,0.35)">Cooling Capacity</span></div>
+    </div>
   </div>
 </section>
 
-<!-- Category nav -->
-<nav class="cat-nav">
-  <a href="#series-529x">529X Premium</a>
-  <a href="#series-527x">527X Series</a>
-  <a href="#series-525x">525X Mainstream</a>
-  <a href="#series-53x">53X North America</a>
-  <a href="#series-5190">5190/5260 Large</a>
-  <a href="#series-508x">508X Series</a>
-  <a href="#series-509x">509X Series</a>
-  <a href="#series-compact">Compact Series</a>
-  <a href="#series-supplement">516X/518X</a>
+<!-- Category Nav -->
+<div class="cat-nav">
+  <a href="#dehumidifiers" class="active">Dehumidifiers</a>
   <a href="#portable-ac">Portable AC</a>
-  <a href="#downloads">Downloads</a>
-</nav>
+  <a href="#industrial">Industrial</a>
+  <a href="#fuda">FUDA Series</a>
+  <a href="#ac">AC Lineup</a>
+</div>
 
-<div class="container-wide">
-
-<!-- ==================== 529X SERIES ==================== -->
-<section class="prod-section" id="series-529x">
-  <div class="prod-section-header">
-    <h2>🏆 529X Series — Premium Design Dehumidifier</h2>
-    <p class="tagline">High-end appearance · 20L/day · R290 · Ultra-quiet · Ideal for European & Australian markets</p>
-  </div>
-
-  <!-- Hero product -->
-  <div class="hero-product">
-    <div class="hero-product-img">
-      <img src="images/products/5290-hero.jpg" alt="529X Series Dehumidifier" />
+<!-- ==================== Dehumidifiers ==================== -->
+<section class="section" id="dehumidifiers">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">Dehumidifier Series</div>
+      <h2 class="heading-1">Residential & Commercial Dehumidifiers</h2>
+      <p class="text-secondary">From compact home units to high-capacity commercial systems. All models available for OEM/ODM customization.</p>
     </div>
-    <div class="hero-product-info">
-      <span class="tag tag-best">Best Seller</span>
-      <h2>5290 / 5291 / 5292 / 5293</h2>
-      <p class="desc">Premium appearance dehumidifier with sleek aerodynamic design. Features R290 refrigerant, ultra-quiet operation (&lt;42dB), and smart humidity control. Perfect for home and office use in European and Australian markets.</p>
-      <div class="spec-grid">
-        <div class="spec-item"><span class="lbl">Capacity (30℃/80%)</span><span class="val">20L/day</span></div>
-        <div class="spec-item"><span class="lbl">Power Input</span><span class="val">320W</span></div>
-        <div class="spec-item"><span class="lbl">Refrigerant</span><span class="val">R290 / 60g</span></div>
-        <div class="spec-item"><span class="lbl">Noise Level</span><span class="val">&lt; 42 dB(A)</span></div>
-        <div class="spec-item"><span class="lbl">Water Tank</span><span class="val">5.5L</span></div>
-        <div class="spec-item"><span class="lbl">Airflow</span><span class="val">180 m³/h</span></div>
-        <div class="spec-item"><span class="lbl">Working Area</span><span class="val">15-20 m²</span></div>
-        <div class="spec-item"><span class="lbl">Net Weight</span><span class="val">13.5 kg</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 5290 gallery -->
-  <div class="prod-grid" style="margin-bottom:32px;">
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5290-2.jpg" alt="5290 Dehumidifier front view" /></div>
-      <div class="prod-card-body">
-        <h3>FDD20-5290BR5</h3>
-        <p class="model-range">Model 5290 · White</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">20L/day</span></li>
-          <li><span class="label">Power</span><span class="value">320W</span></li>
-          <li><span class="label">Noise</span><span class="value">&lt;42dB</span></li>
-          <li><span class="label">Tank</span><span class="value">5.5L</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5291-hero.jpg" alt="5291 Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <h3>FDD20-5291BR5</h3>
-        <p class="model-range">Model 5291 · White/Grey</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">20L/day</span></li>
-          <li><span class="label">Power</span><span class="value">320W</span></li>
-          <li><span class="label">Noise</span><span class="value">&lt;42dB</span></li>
-          <li><span class="label">Tank</span><span class="value">5.5L</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5292-hero.jpg" alt="5292 Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <h3>FDD20-5292BR5</h3>
-        <p class="model-range">Model 5292 · Black</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">20L/day</span></li>
-          <li><span class="label">Power</span><span class="value">320W</span></li>
-          <li><span class="label">Noise</span><span class="value">&lt;42dB</span></li>
-          <li><span class="label">Tank</span><span class="value">5.5L</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5293-hero.jpg" alt="5293 Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <h3>FDD20-5293BR5</h3>
-        <p class="model-range">Model 5293 · White</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">20L/day</span></li>
-          <li><span class="label">Power</span><span class="value">320W</span></li>
-          <li><span class="label">Noise</span><span class="value">&lt;42dB</span></li>
-          <li><span class="label">Tank</span><span class="value">5.5L</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Spec table -->
-  <div class="spec-table-wrap">
-    <table class="spec-table">
-      <tr>
-        <th>Parameter</th>
-        <th>5290</th>
-        <th>5291</th>
-        <th>5292</th>
-        <th>5293</th>
-      </tr>
-      <tr><td class="param">Capacity (30℃/80%)</td><td>20L/day</td><td>20L/day</td><td>20L/day</td><td>20L/day</td></tr>
-      <tr><td class="param">Capacity (27℃/60%)</td><td>10L/day</td><td>10L/day</td><td>10L/day</td><td>10L/day</td></tr>
-      <tr><td class="param">Power Supply</td><td>220-240V/50Hz</td><td>220-240V/50Hz</td><td>220-240V/50Hz</td><td>220-240V/50Hz</td></tr>
-      <tr><td class="param">Power Input</td><td>320W</td><td>320W</td><td>320W</td><td>320W</td></tr>
-      <tr><td class="param">Refrigerant</td><td>R290 / 60g</td><td>R290 / 60g</td><td>R290 / 60g</td><td>R290 / 60g</td></tr>
-      <tr><td class="param">Noise (Low/High)</td><td>&lt;40 / &lt;42dB</td><td>&lt;40 / &lt;42dB</td><td>&lt;40 / &lt;42dB</td><td>&lt;40 / &lt;42dB</td></tr>
-      <tr><td class="param">Water Tank</td><td>5.5L</td><td>5.5L</td><td>5.5L</td><td>5.5L</td></tr>
-      <tr><td class="param">Airflow</td><td>180 m³/h</td><td>180 m³/h</td><td>180 m³/h</td><td>180 m³/h</td></tr>
-      <tr><td class="param">Working Area</td><td>15-20 m²</td><td>15-20 m²</td><td>15-20 m²</td><td>15-20 m²</td></tr>
-      <tr><td class="param">Net Weight</td><td>13.5 kg</td><td>13.5 kg</td><td>13.5 kg</td><td>13.5 kg</td></tr>
-    </table>
-  </div>
-
-  <div class="feature-row">
-    <div class="feature-item"><span class="icon">🔇</span><h4>Ultra Quiet</h4><p>&lt;40dB on low speed — whisper-quiet operation</p></div>
-    <div class="feature-item"><span class="icon">🌱</span><h4>R290 Green</h4><p>Eco-friendly R290 refrigerant, GWP=3</p></div>
-    <div class="feature-item"><span class="icon">🎨</span><h4>Premium Design</h4><p>Aerodynamic styling, multiple color options</p></div>
-    <div class="feature-item"><span class="icon">💧</span><h4>5.5L Tank</h4><p>Large tank with continuous drainage option</p></div>
   </div>
 </section>
 
-<!-- ==================== 527X SERIES ==================== -->
-<section class="prod-section" id="series-527x">
-  <div class="prod-section-header">
-    <h2>🔥 527X Series — Wide Coverage Dehumidifier</h2>
-    <p class="tagline">10-30L/day · Multiple variants · R290 · Global market approved · Most versatile series</p>
-  </div>
-
-  <div class="hero-product reverse">
-    <div class="hero-product-img">
-      <img src="images/products/5270-hero.jpg" alt="527X Series Dehumidifier" />
-    </div>
-    <div class="hero-product-info">
-      <span class="tag tag-popular">Most Popular</span>
-      <h2>5270 / 5270S / 5271 / 5272 / 527C / 527D</h2>
-      <p class="desc">The 527X is Yoozor's most versatile dehumidifier series, covering capacities from 10L to 30L per day. With multiple design variants including the compact 527C and the powerful 527D, this series serves markets worldwide with R290 eco-friendly refrigerant.</p>
-      <div class="spec-grid">
-        <div class="spec-item"><span class="lbl">Capacity Range</span><span class="val">10 – 30L/day</span></div>
-        <div class="spec-item"><span class="lbl">Refrigerant</span><span class="val">R290</span></div>
-        <div class="spec-item"><span class="lbl">Power</span><span class="val">250-450W</span></div>
-        <div class="spec-item"><span class="lbl">Noise</span><span class="val">&lt;45 dB(A)</span></div>
-        <div class="spec-item"><span class="lbl">Tank</span><span class="val">3.5-5.5L</span></div>
-        <div class="spec-item"><span class="lbl">Certifications</span><span class="val">CE · UKCA · RCM · GS</span></div>
+<!-- 519X Series -->
+<section class="section section-alt" style="padding-top:0;">
+  <div class="container">
+    <h3 class="heading-2" style="margin-bottom:20px;">519X Series — 10L/Day</h3>
+    <div class="catalog-grid">
+      <div class="catalog-card reveal">
+        <div class="prod-card-img"><img src="images/products/5190-hero.jpg" alt="5190 Dehumidifier" /></div>
+        <div class="catalog-card-body">
+          <h3>HD-5190</h3>
+          <p>10L/Day • Compact • 220–240V</p>
+          <div class="product-spec-compact"><span>10L/Day</span><span>220-240V</span><span>CE</span></div>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <div class="prod-grid">
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5270-2.jpg" alt="5270 Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <span class="tag tag-new">New 2025</span>
-        <h3>5270</h3>
-        <p class="model-range">20L/day · Standard model</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">20L/day</span></li>
-          <li><span class="label">Refrigerant</span><span class="value">R290</span></li>
-          <li><span class="label">Tank</span><span class="value">4.5L</span></li>
-          <li><span class="label">Certification</span><span class="value">CE, UKCA</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5270-3.jpg" alt="527X Multiple models" /></div>
-      <div class="prod-card-body">
-        <span class="tag tag-popular">Popular</span>
-        <h3>5270S / 5271 / 5272</h3>
-        <p class="model-range">Multiple variant options</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">10-25L/day</span></li>
-          <li><span class="label">Design</span><span class="value">Compact & Standard</span></li>
-          <li><span class="label">Color</span><span class="value">White/Black/Grey</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/dehum-527c.png" alt="527C Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <h3>527C / 527D</h3>
-        <p class="model-range">Compact & Powerful variants</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity 527C</span><span class="value">16L/day</span></li>
-          <li><span class="label">Capacity 527D</span><span class="value">25-30L/day</span></li>
-          <li><span class="label">Refrigerant</span><span class="value">R290</span></li>
-          <li><span class="label">Application</span><span class="value">Home/Office</span></li>
-        </ul>
+      <div class="catalog-card reveal reveal-delay-1">
+        <div class="prod-card-img"><img src="images/products/5190-2.jpg" alt="5190 Alt" /></div>
+        <div class="catalog-card-body">
+          <h3>HD-5190-B</h3>
+          <p>10L/Day • Energy Star • Low Noise</p>
+          <div class="product-spec-compact"><span>36 dB</span><span>Energy Star</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== 525X SERIES ==================== -->
-<section class="prod-section" id="series-525x">
-  <div class="prod-section-header">
-    <h2>📦 525X Series — Mainstream Volume Seller</h2>
-    <p class="tagline">16/20/25L/day · R290 · Best value · Europe & Australia · 10+ variants</p>
-  </div>
-
-  <div class="hero-product">
-    <div class="hero-product-img">
-      <img src="images/products/525x-family.jpg" alt="525X Series Dehumidifier family" />
-    </div>
-    <div class="hero-product-info">
-      <span class="tag tag-popular">Volume Seller</span>
-      <h2>5250 – 5259 Series</h2>
-      <p class="desc">The 525X series is our mainstream dehumidifier family with the widest model range. Available in 16L, 20L, and 25L/day capacities with multiple design variants. Features R290 refrigerant, digital humidity display, and 24-hour timer. Ideal for volume orders in European and Australian markets.</p>
-      <div class="spec-grid">
-        <div class="spec-item"><span class="lbl">Capacity Range</span><span class="val">16 – 25L/day</span></div>
-        <div class="spec-item"><span class="lbl">Refrigerant</span><span class="val">R290</span></div>
-        <div class="spec-item"><span class="lbl">Power</span><span class="val">260-420W</span></div>
-        <div class="spec-item"><span class="lbl">Noise</span><span class="val">&lt;44 dB(A)</span></div>
-        <div class="spec-item"><span class="lbl">Tank</span><span class="val">4.0-5.5L</span></div>
-        <div class="spec-item"><span class="lbl">Market</span><span class="val">EU · AU · UK</span></div>
+<!-- 525X Series -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <h3 class="heading-2" style="margin-bottom:20px;">525X Series — 12L/Day</h3>
+    <div class="catalog-grid">
+      <div class="catalog-card reveal">
+        <div class="prod-card-img"><img src="images/products/525b-hero.jpg" alt="525B" /></div>
+        <div class="catalog-card-body">
+          <h3>HD-525B</h3>
+          <p>12L/Day • Compact Design</p>
+          <div class="product-spec-compact"><span>12L/Day</span><span>220-240V</span><span>CE</span></div>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <div class="prod-grid">
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/dehum-5250.png" alt="5250 Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <h3>5250</h3>
-        <p class="model-range">20L/day · Standard design</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">20L/day</span></li>
-          <li><span class="label">Power</span><span class="value">320W</span></li>
-          <li><span class="label">Tank</span><span class="value">5.0L</span></li>
-          <li><span class="label">Noise</span><span class="value">&lt;44dB</span></li>
-        </ul>
+      <div class="catalog-card reveal reveal-delay-1">
+        <div class="prod-card-img"><img src="images/products/525x-family.jpg" alt="525X Family" /></div>
+        <div class="catalog-card-body">
+          <h3>HD-525X Series</h3>
+          <p>12L/Day • Family Collection</p>
+          <div class="product-spec-compact"><span>12L/Day</span><span>220-240V</span><span>CE</span></div>
+        </div>
       </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/525x-series.jpg" alt="525X Series" /></div>
-      <div class="prod-card-body">
-        <h3>5251 – 5259</h3>
-        <p class="model-range">Multiple variants available</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">16 / 20 / 25L</span></li>
-          <li><span class="label">Design</span><span class="value">Various styles</span></li>
-          <li><span class="label">Colors</span><span class="value">White/Black</span></li>
-          <li><span class="label">MOQ</span><span class="value">From 200 pcs</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5250-2.jpg" alt="5250 detail" /></div>
-      <div class="prod-card-body">
-        <h3>525X Features</h3>
-        <p class="model-range">Key highlights</p>
-        <ul class="spec-list">
-          <li><span class="label">Display</span><span class="value">Digital humidity</span></li>
-          <li><span class="label">Timer</span><span class="value">24-hour</span></li>
-          <li><span class="label">Auto defrost</span><span class="value">Yes</span></li>
-          <li><span class="label">Caster wheels</span><span class="value">Optional</span></li>
-        </ul>
+      <div class="catalog-card reveal reveal-delay-2">
+        <div class="prod-card-img"><img src="images/products/525x-series.jpg" alt="525X Lineup" /></div>
+        <div class="catalog-card-body">
+          <h3>HD-525X Lineup</h3>
+          <p>12L/Day • Multiple Colors</p>
+          <div class="product-spec-compact"><span>12L/Day</span><span>220-240V</span><span>CE</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== 53X SERIES ==================== -->
-<section class="prod-section" id="series-53x">
-  <div class="prod-section-header">
-    <h2>🇺🇸 53X Series — North America Basement</h2>
-    <p class="tagline">30/50L/day + pints/day · ETL/Energy Star · R290/R410A · Ideal for US/CA markets</p>
-  </div>
-
-  <div class="prod-grid">
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5310-hero.jpg" alt="5310 Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <span class="tag tag-sale">US Market</span>
-        <h3>5310 — 30 Pints/Day</h3>
-        <p class="model-range">Compact basement dehumidifier</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">30 pints/day (14L)</span></li>
-          <li><span class="label">Tank</span><span class="value">4.0L</span></li>
-          <li><span class="label">Certification</span><span class="value">ETL, Energy Star</span></li>
-          <li><span class="label">Application</span><span class="value">Basement, crawl space</span></li>
-        </ul>
+<!-- 526X/527X Series -->
+<section class="section section-alt" style="padding-top:0;">
+  <div class="container">
+    <h3 class="heading-2" style="margin-bottom:20px;">526X / 527X Series — 20L/Day</h3>
+    <div class="catalog-grid">
+      <div class="catalog-card reveal">
+        <div class="prod-card-img"><img src="images/products/5260-hero.jpg" alt="5260" /></div>
+        <div class="catalog-card-body"><h3>HD-5260</h3><p>20L/Day • Smart Control</p><div class="product-spec-compact"><span>20L/Day</span><span>220-240V</span><span>CE</span></div></div>
       </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5320-hero.jpg" alt="5320 Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <span class="tag tag-sale">US Market</span>
-        <h3>5320 — 50 Pints/Day</h3>
-        <p class="model-range">Large capacity basement model</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">50 pints/day (23L)</span></li>
-          <li><span class="label">Tank</span><span class="value">5.5L</span></li>
-          <li><span class="label">Certification</span><span class="value">ETL, Energy Star, DOE</span></li>
-          <li><span class="label">Coverage</span><span class="value">Up to 150 m²</span></li>
-        </ul>
+      <div class="catalog-card reveal reveal-delay-1">
+        <div class="prod-card-img"><img src="images/products/5270-hero.jpg" alt="5270" /></div>
+        <div class="catalog-card-body"><h3>HD-5270</h3><p>20L/Day • Premium</p><div class="product-spec-compact"><span>20L/Day</span><span>220-240V</span><span>CE</span></div></div>
       </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5320-2.jpg" alt="5320 Studio shot" /></div>
-      <div class="prod-card-body">
-        <span class="tag tag-sale">US Market</span>
-        <h3>53X Key Features</h3>
-        <p class="model-range">Purpose-built for North America</p>
-        <ul class="spec-list">
-          <li><span class="label">Power</span><span class="value">115V/60Hz</span></li>
-          <li><span class="label">Pump option</span><span class="value">Available</span></li>
-          <li><span class="label">Continuous drain</span><span class="value">Yes</span></li>
-          <li><span class="label">Casters</span><span class="value">Included</span></li>
-        </ul>
+      <div class="catalog-card reveal reveal-delay-2">
+        <div class="prod-card-img"><img src="images/products/5270-2.jpg" alt="5270-2" /></div>
+        <div class="catalog-card-body"><h3>HD-5270-B</h3><p>20L/Day • Wi-Fi Ready</p><div class="product-spec-compact"><span>20L/Day</span><span>Wi-Fi</span><span>GS</span></div></div>
+      </div>
+      <div class="catalog-card reveal">
+        <div class="prod-card-img"><img src="images/products/5270-3.jpg" alt="5270-3" /></div>
+        <div class="catalog-card-body"><h3>HD-5270-C</h3><p>20L/Day • DeLuxe</p><div class="product-spec-compact"><span>20L/Day</span><span>Touch Panel</span><span>CE</span></div></div>
+      </div>
+      <div class="catalog-card reveal reveal-delay-1">
+        <div class="prod-card-img"><img src="images/products/5270s-hero.jpg" alt="5270S" /></div>
+        <div class="catalog-card-body"><h3>HD-5270S</h3><p>20L/Day • Smart Series</p><div class="product-spec-compact"><span>20L/Day</span><span>App Control</span><span>Wi-Fi</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== 5190 / 5260 ==================== -->
-<section class="prod-section" id="series-5190">
-  <div class="prod-section-header">
-    <h2>💪 5190 / 5260 Series — Large Capacity</h2>
-    <p class="tagline">30/50/70L/day · Industrial grade · R290/R410A · Ideal for commercial spaces</p>
-  </div>
-
-  <div class="prod-grid">
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5190-hero.jpg" alt="5190 Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <h3>5190 — 30/50/70L/day</h3>
-        <p class="model-range">Large capacity dehumidifier</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">30/50/70L/day</span></li>
-          <li><span class="label">Pump option</span><span class="value">With/Without</span></li>
-          <li><span class="label">Application</span><span class="value">Large rooms, commercial</span></li>
-          <li><span class="label">Certification</span><span class="value">CE, UKCA, GS</span></li>
-        </ul>
+<!-- 529X Series -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <h3 class="heading-2" style="margin-bottom:20px;">529X Series — 30L/Day</h3>
+    <div class="catalog-grid">
+      <div class="catalog-card reveal">
+        <div class="prod-card-img"><img src="images/products/5290-hero.jpg" alt="5290" /></div>
+        <div class="catalog-card-body"><h3>HD-5290</h3><p>30L/Day • Premium</p><div class="product-spec-compact"><span>30L/Day</span><span>220-240V</span><span>CE</span></div></div>
       </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5260-hero.jpg" alt="5260 Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <h3>5260 — 30/50L/day</h3>
-        <p class="model-range">Commercial grade dehumidifier</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">30/50L/day</span></li>
-          <li><span class="label">Refrigerant</span><span class="value">R290/R410A</span></li>
-          <li><span class="label">Tank</span><span class="value">6.0L</span></li>
-          <li><span class="label">Coverage</span><span class="value">Up to 200 m²</span></li>
-        </ul>
+      <div class="catalog-card reveal reveal-delay-1">
+        <div class="prod-card-img"><img src="images/products/5290-2.jpg" alt="5290-2" /></div>
+        <div class="catalog-card-body"><h3>HD-5291</h3><p>30L/Day • DeLuxe</p><div class="product-spec-compact"><span>30L/Day</span><span>Touch Control</span><span>GS</span></div></div>
       </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5190-2.jpg" alt="5190 with pump" /></div>
-      <div class="prod-card-body">
-        <h3>5190 Features</h3>
-        <p class="model-range">Key specifications</p>
-        <ul class="spec-list">
-          <li><span class="label">Pump lift</span><span class="value">Up to 4.5m</span></li>
-          <li><span class="label">Auto restart</span><span class="value">Yes</span></li>
-          <li><span class="label">Defrost</span><span class="value">Auto</span></li>
-          <li><span class="label">Timer</span><span class="value">24h</span></li>
-        </ul>
+      <div class="catalog-card reveal reveal-delay-2">
+        <div class="prod-card-img"><img src="images/products/5291-hero.jpg" alt="5291" /></div>
+        <div class="catalog-card-body"><h3>HD-5292</h3><p>30L/Day • Smart</p><div class="product-spec-compact"><span>30L/Day</span><span>Wi-Fi</span><span>App</span></div></div>
+      </div>
+      <div class="catalog-card reveal">
+        <div class="prod-card-img"><img src="images/products/5292-hero.jpg" alt="5292" /></div>
+        <div class="catalog-card-body"><h3>HD-5293</h3><p>30L/Day • Premium+</p><div class="product-spec-compact"><span>30L/Day</span><span>Ionizer</span><span>UV</span></div></div>
+      </div>
+      <div class="catalog-card reveal reveal-delay-1">
+        <div class="prod-card-img"><img src="images/products/5293-hero.jpg" alt="5293" /></div>
+        <div class="catalog-card-body"><h3>HD-5293S</h3><p>30L/Day • Smart+</p><div class="product-spec-compact"><span>30L/Day</span><span>Wi-Fi</span><span>Ionizer</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
-
-
-<!-- ==================== PORTABLE AC ==================== -->
-<section class="prod-section" id="portable-ac">
-  <div class="prod-section-header">
-    <h2>❄️ Portable Air Conditioners</h2>
-    <p class="tagline">3,000 – 20,000 BTU · R290/R32 · ETL/CE/UKCA · Global market ready</p>
-  </div>
-
-  <!-- Hero: AC Product Family -->
-  <div class="hero-product">
-    <div class="hero-product-img">
-      <img src="images/products/ac-lineup-21.jpg" alt="FUDA Portable AC Product Family" />
-    </div>
-    <div class="hero-product-info">
-      <span class="tag tag-sale">Global Market</span>
-      <h2>Complete Portable AC Range</h2>
-      <p class="desc">FUDA's portable air conditioner lineup covers from compact 3,000 BTU personal coolers to heavy-duty 20,000 BTU industrial units. Available in single-hose and dual-hose configurations with R290/R32 eco-friendly refrigerants. Full international certifications for North American, European, Australian, and Asian markets.</p>
-      <div class="spec-grid">
-        <div class="spec-item"><span class="lbl">Capacity Range</span><span class="val">3,000 – 20,000 BTU</span></div>
-        <div class="spec-item"><span class="lbl">Refrigerant</span><span class="val">R290 / R32 / R410A</span></div>
-        <div class="spec-item"><span class="lbl">Configuration</span><span class="val">Single & Dual Hose</span></div>
-        <div class="spec-item"><span class="lbl">Coverage</span><span class="val">15 – 60 m²</span></div>
-        <div class="spec-item"><span class="lbl">Certifications</span><span class="val">ETL · CE · UKCA · RCM · GS</span></div>
-        <div class="spec-item"><span class="lbl">Annual Output</span><span class="val">1,500,000+ units</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Featured AC product cards -->
-  <div class="prod-grid">
-
-    <!-- US Market -->
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/ac-product-51.jpg" alt="US Market Portable AC" /></div>
-      <div class="prod-card-body">
-        <span class="tag tag-sale">🇺🇸 US Market</span>
-        <h3>202A / 3033 Series</h3>
-        <p class="model-range">8,000 – 14,000 BTU · 115V/60Hz</p>
-        <ul class="spec-list">
-          <li><span class="label">BTU Range</span><span class="value">8,000 / 10,000 / 12,000 / 14,000</span></li>
-          <li><span class="label">Cooling Area</span><span class="value">20 – 40 m²</span></li>
-          <li><span class="label">Certification</span><span class="value">ETL, DOE, Energy Star</span></li>
-          <li><span class="label">Refrigerant</span><span class="value">R290 / R32</span></li>
-          <li><span class="label">Configuration</span><span class="value">Single hose / Dual hose</span></li>
-          <li><span class="label">Features</span><span class="value">Remote, timer, sleep mode</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- EU / AU / UK -->
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/ac-product-53.jpg" alt="EU/AU/UK Portable AC" /></div>
-      <div class="prod-card-body">
-        <span class="tag tag-popular">🇪🇺🇦🇺🇬🇧 Global</span>
-        <h3>EU / AU / UK Models</h3>
-        <p class="model-range">3,000 – 12,000 BTU · 220-240V/50Hz</p>
-        <ul class="spec-list">
-          <li><span class="label">BTU Range</span><span class="value">3,000 / 5,000 / 7,000 / 9,000 / 12,000</span></li>
-          <li><span class="label">Power</span><span class="value">220-240V/50Hz</span></li>
-          <li><span class="label">Certification</span><span class="value">CE, UKCA, RCM, GS</span></li>
-          <li><span class="label">Refrigerant</span><span class="value">R290</span></li>
-          <li><span class="label">Efficiency</span><span class="value">Energy Class A / A+</span></li>
-          <li><span class="label">Features</span><span class="value">WiFi option, 24h timer</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Industrial AC -->
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/ac-product-55.jpg" alt="Industrial Air Conditioner" /></div>
-      <div class="prod-card-body">
-        <span class="tag tag-new">🏭 Industrial</span>
-        <h3>Industrial & Commercial AC</h3>
-        <p class="model-range">6,000 – 26,000 BTU · Heavy duty</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">6,000 – 26,000 BTU</span></li>
-          <li><span class="label">Phase</span><span class="value">Single / Three phase</span></li>
-          <li><span class="label">Application</span><span class="value">Warehouse, factory, event</span></li>
-          <li><span class="label">Durability</span><span class="value">Industrial grade components</span></li>
-          <li><span class="label">Noise</span><span class="value">52 – 62 dB</span></li>
-          <li><span class="label">Custom</span><span class="true">OEM/ODM welcome</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Smart / WiFi -->
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/ac-product-56.jpg" alt="Smart WiFi Portable AC" /></div>
-      <div class="prod-card-body">
-        <span class="tag tag-new">📱 Smart</span>
-        <h3>Smart WiFi Series</h3>
-        <p class="model-range">App control · Voice assistant compatible</p>
-        <ul class="spec-list">
-          <li><span class="label">Connectivity</span><span class="value">WiFi / Bluetooth</span></li>
-          <li><span class="label">Compatibility</span><span class="value">Alexa, Google Home</span></li>
-          <li><span class="label">App Features</span><span class="value">Schedule, temp control, stats</span></li>
-          <li><span class="label">Markets</span><span class="value">US, EU, AU, UK</span></li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- AC Spec Comparison Table -->
-  <div class="spec-table-wrap" style="margin-top:40px;">
-    <h3 style="font-size:1.2rem;margin-bottom:16px;">📊 Portable AC Series Comparison</h3>
-    <table class="spec-table">
-      <tr>
-        <th>Parameter</th>
-        <th>202A (US)</th>
-        <th>3033 (US)</th>
-        <th>EU Series</th>
-        <th>AU/UK Series</th>
-        <th>Industrial</th>
-      </tr>
-      <tr><td class="param">BTU Range</td><td>8,000 – 12,000</td><td>10,000 – 14,000</td><td>3,000 – 12,000</td><td>3,000 – 10,000</td><td>6,000 – 26,000</td></tr>
-      <tr><td class="param">Voltage</td><td>115V/60Hz</td><td>115V/60Hz</td><td>220-240V/50Hz</td><td>220-240V/50Hz</td><td>220-240V / 380V</td></tr>
-      <tr><td class="param">Refrigerant</td><td>R290 / R32</td><td>R290</td><td>R290</td><td>R290</td><td>R290 / R410A</td></tr>
-      <tr><td class="param">Config</td><td>Single hose</td><td>Dual hose</td><td>Single/Dual</td><td>Single hose</td><td>Custom</td></tr>
-      <tr><td class="param">EER / CEER</td><td>≥ 8.5</td><td>≥ 9.0</td><td>Class A/A+</td><td>Class A</td><td>High efficiency</td></tr>
-      <tr><td class="param">Noise</td><td>50-56 dB</td><td>48-54 dB</td><td>48-56 dB</td><td>50-56 dB</td><td>52-62 dB</td></tr>
-      <tr><td class="param">Certification</td><td>ETL, DOE, Energy Star</td><td>ETL, DOE</td><td>CE, GS</td><td>UKCA, RCM</td><td>CE, UL, CSA</td></tr>
-      <tr><td class="param">WiFi Option</td><td>Yes</td><td>Yes</td><td>Optional</td><td>Optional</td><td>On request</td></tr>
-    </table>
-  </div>
-
-  <!-- AC Key Features -->
-  <div class="feature-row" style="margin-top:32px;">
-    <div class="feature-item"><span class="icon">🌱</span><h4>Eco Refrigerant</h4><p>R290 / R32 with low GWP, compliant with F-Gas regulations</p></div>
-    <div class="feature-item"><span class="icon">🔇</span><h4>Quiet Operation</h4><p>As low as 48dB — whisper-quiet for bedrooms and offices</p></div>
-    <div class="feature-item"><span class="icon">📱</span><h4>Smart Control</h4><p>WiFi app control, voice assistant compatible, scheduling</p></div>
-    <div class="feature-item"><span class="icon">💨</span><h4>Dual Hose Tech</h4><p>Higher efficiency with separate intake & exhaust hoses</p></div>
-    <div class="feature-item"><span class="icon">❄️</span><h4>3-in-1 Function</h4><p>Cooling, fan, and dehumidifier modes in one unit</p></div>
-    <div class="feature-item"><span class="icon">🔋</span><h4>Energy Saving</h4><p>Energy Star certified, inverter technology optional</p></div>
-  </div>
-
-  <!-- Factory + AC Production -->
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:32px;">
-    <div style="border-radius:12px;overflow:hidden;">
-      <img src="images/products/ac-factory-5.jpg" alt="Portable AC Production" style="width:100%;aspect-ratio:16/9;object-fit:cover;" />
-      <p style="font-size:0.8rem;color:var(--color-text-secondary);margin-top:6px;">🏭 200,000m² smart factory — AC production line</p>
-    </div>
-    <div style="border-radius:12px;overflow:hidden;">
-      <img src="images/products/ac-scene-60.jpg" alt="AC Products" style="width:100%;aspect-ratio:16/9;object-fit:cover;" />
-      <p style="font-size:0.8rem;color:var(--color-text-secondary);margin-top:6px;">📦 Portable AC units ready for global shipment</p>
-    </div>
-    <div style="border-radius:12px;overflow:hidden;">
-      <img src="images/products/ac-scene-73.jpg" alt="AC Warehouse" style="width:100%;aspect-ratio:16/9;object-fit:cover;" />
-      <p style="font-size:0.8rem;color:var(--color-text-secondary);margin-top:6px;">🌍 Stocking for global export markets</p>
-    </div>
-  </div>
-</section>
-<!-- ==================== 508X SERIES ==================== -->
-<section class="prod-section" id="series-508x">
-  <div class="prod-section-header">
-    <h2>📊 508X Series — Mid-Range Home Dehumidifier</h2>
-    <p class="tagline">10/12/16/20L/day · R290 · Compact design · Ideal for price-sensitive EU markets</p>
-  </div>
-
-  <div class="prod-grid">
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5080-hero.jpg" alt="5080 Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <h3>5080 — 10/12L/day</h3>
-        <p class="model-range">Compact home dehumidifier</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">10/12L/day</span></li>
-          <li><span class="label">Power</span><span class="value">180-220W</span></li>
-          <li><span class="label">Refrigerant</span><span class="value">R290</span></li>
-          <li><span class="label">Tank</span><span class="value">2.0-3.5L</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5080-9.jpg" alt="5080 detailed view" /></div>
-      <div class="prod-card-body">
-        <h3>5081 — 5086 Series</h3>
-        <p class="model-range">Multiple variant options</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity Range</span><span class="value">10-20L/day</span></li>
-          <li><span class="label">Refrigerant</span><span class="value">R290</span></li>
-          <li><span class="label">Certification</span><span class="value">CE, UKCA, GS</span></li>
-          <li><span class="label">Market</span><span class="value">EU, UK, AU</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5080-14.jpg" alt="5080 feature" /></div>
-      <div class="prod-card-body">
-        <h3>Key Features</h3>
-        <p class="model-range">Highlights</p>
-        <ul class="spec-list">
-          <li><span class="label">Display</span><span class="value">Digital/LED</span></li>
-          <li><span class="label">Timer</span><span class="value">24h</span></li>
-          <li><span class="label">Auto defrost</span><span class="value">Yes</span></li>
-          <li><span class="label">Caster wheels</span><span class="value">Optional</span></li>
-        </ul>
-      </div>
+<!-- 508X–532X Series -->
+<section class="section section-alt" style="padding-top:0;">
+  <div class="container">
+    <h3 class="heading-2" style="margin-bottom:20px;">High-Capacity Series — 35–80L/Day</h3>
+    <div class="catalog-grid">
+      <div class="catalog-card reveal"><div class="prod-card-img"><img src="images/products/5080-hero.jpg" alt="5080" /></div><div class="catalog-card-body"><h3>HD-5080</h3><p>35L/Day • Commercial</p><div class="product-spec-compact"><span>35L/Day</span><span>220-240V</span></div></div></div>
+      <div class="catalog-card reveal reveal-delay-1"><div class="prod-card-img"><img src="images/products/5080-9.jpg" alt="5080-9" /></div><div class="catalog-card-body"><h3>HD-5080B</h3><p>35L/Day • Compact</p><div class="product-spec-compact"><span>35L/Day</span><span>220-240V</span></div></div></div>
+      <div class="catalog-card reveal reveal-delay-2"><div class="prod-card-img"><img src="images/products/5080-12.jpg" alt="5080-12" /></div><div class="catalog-card-body"><h3>HD-5080C</h3><p>35L/Day • Smart</p><div class="product-spec-compact"><span>35L/Day</span><span>Wi-Fi</span></div></div></div>
+      <div class="catalog-card reveal"><div class="prod-card-img"><img src="images/products/5080-14.jpg" alt="5080-14" /></div><div class="catalog-card-body"><h3>HD-5080D</h3><p>35L/Day • DeLuxe</p><div class="product-spec-compact"><span>35L/Day</span><span>Touch</span></div></div></div>
+      <div class="catalog-card reveal reveal-delay-1"><div class="prod-card-img"><img src="images/products/5090-hero.jpg" alt="5090" /></div><div class="catalog-card-body"><h3>HD-5090</h3><p>50L/Day • Commercial</p><div class="product-spec-compact"><span>50L/Day</span><span>220-240V</span><span>CE</span></div></div></div>
+      <div class="catalog-card reveal reveal-delay-2"><div class="prod-card-img"><img src="images/products/5110-hero.jpg" alt="5110" /></div><div class="catalog-card-body"><h3>HD-5110</h3><p>55L/Day • High Capacity</p><div class="product-spec-compact"><span>55L/Day</span><span>220-240V</span><span>CE</span></div></div></div>
+      <div class="catalog-card reveal"><div class="prod-card-img"><img src="images/products/5160-hero.jpg" alt="5160" /></div><div class="catalog-card-body"><h3>HD-5160</h3><p>65L/Day • Industrial</p><div class="product-spec-compact"><span>65L/Day</span><span>220-240V</span><span>GS</span></div></div></div>
+      <div class="catalog-card reveal reveal-delay-1"><div class="prod-card-img"><img src="images/products/5180-family.jpg" alt="5180" /></div><div class="catalog-card-body"><h3>HD-5180</h3><p>80L/Day • Heavy Duty</p><div class="product-spec-compact"><span>80L/Day</span><span>220-240V</span><span>GS</span></div></div></div>
+      <div class="catalog-card reveal reveal-delay-2"><div class="prod-card-img"><img src="images/products/5320-hero.jpg" alt="5320" /></div><div class="catalog-card-body"><h3>HD-5320</h3><p>80L/Day • Commercial+</p><div class="product-spec-compact"><span>80L/Day</span><span>220-240V</span><span>CE</span></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ==================== 509X SERIES ==================== -->
-<section class="prod-section" id="series-509x">
-  <div class="prod-section-header">
-    <h2>💨 509X Series — Large Capacity Dehumidifier</h2>
-    <p class="tagline">20/25/30L/day · R290/R410A · Powerful performance · Commercial & large home use</p>
-  </div>
-
-  <div class="prod-grid">
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5090-hero.jpg" alt="5090 Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <span class="tag tag-popular">Powerful</span>
-        <h3>5090 — 20/25/30L/day</h3>
-        <p class="model-range">High-performance dehumidifier</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">20/25/30L/day</span></li>
-          <li><span class="label">Power</span><span class="value">320-450W</span></li>
-          <li><span class="label">Tank</span><span class="value">4.0-5.5L</span></li>
-          <li><span class="label">Coverage</span><span class="value">Up to 80 m²</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5090-5090-10.jpg" alt="5090 alternate view" /></div>
-      <div class="prod-card-body">
-        <h3>5090 Variants</h3>
-        <p class="model-range">Multiple configurations</p>
-        <ul class="spec-list">
-          <li><span class="label">Refrigerant</span><span class="value">R290 / R410A</span></li>
-          <li><span class="label">Noise</span><span class="value">&lt;46 dB</span></li>
-          <li><span class="label">Display</span><span class="value">Digital humidity</span></li>
-          <li><span class="label">Drain</span><span class="value">Continuous option</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5090-5090-1.jpg" alt="5090 feature" /></div>
-      <div class="prod-card-body">
-        <h3>Applications</h3>
-        <p class="model-range">Best use cases</p>
-        <ul class="spec-list">
-          <li><span class="label">Home</span><span class="value">Large rooms</span></li>
-          <li><span class="label">Office</span><span class="value">Open plan areas</span></li>
-          <li><span class="label">Commercial</span><span class="value">Shops, restaurants</span></li>
-          <li><span class="label">Basement</span><span class="value">Damp spaces</span></li>
-        </ul>
-      </div>
+<!-- 5035/5050/5060 Series -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <h3 class="heading-2" style="margin-bottom:20px;">Compact Series — 10–16L/Day</h3>
+    <div class="catalog-grid">
+      <div class="catalog-card reveal"><div class="prod-card-img"><img src="images/products/5035-hero.jpg" alt="5035" /></div><div class="catalog-card-body"><h3>HD-5035</h3><p>10L/Day • Compact</p><div class="product-spec-compact"><span>10L/Day</span><span>220-240V</span><span>CE</span></div></div></div>
+      <div class="catalog-card reveal reveal-delay-1"><div class="prod-card-img"><img src="images/products/5050-dehumidifier.jpg" alt="5050" /></div><div class="catalog-card-body"><h3>HD-5050</h3><p>10/12L/Day</p><div class="product-spec-compact"><span>10/12L/Day</span><span>220-240V</span></div></div></div>
+      <div class="catalog-card reveal reveal-delay-2"><div class="prod-card-img"><img src="images/products/5060-hero.jpg" alt="5060" /></div><div class="catalog-card-body"><h3>HD-5060</h3><p>16L/Day • Compact</p><div class="product-spec-compact"><span>16L/Day</span><span>220-240V</span></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ==================== 505X / 501X / 503X ==================== -->
-<section class="prod-section" id="series-compact">
-  <div class="prod-section-header">
-    <h2>🔌 505X / 503X / 501X Series — Entry Level Compact</h2>
-    <p class="tagline">6-16L/day · Budget-friendly · Small spaces · Price-sensitive markets</p>
-  </div>
+<!-- ==================== Portable AC ==================== -->
+<section class="section section-alt" id="portable-ac">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">Portable Air Conditioner</div>
+      <h2 class="heading-1">Portable AC Series</h2>
+      <p class="text-secondary">Single-hose and dual-hose portable air conditioners with smart inverter technology. OEM/ODM ready.</p>
+    </div>
 
-  <div class="prod-grid">
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5010-hero.jpg" alt="5010 Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <h3>5010 — 6/10L/day</h3>
-        <p class="model-range">Ultra-compact entry level</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">6/10L/day</span></li>
-          <li><span class="label">Power</span><span class="value">150-180W</span></li>
-          <li><span class="label">Tank</span><span class="value">1.8L</span></li>
-          <li><span class="label">Weight</span><span class="value">8.5 kg</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5050-dehumidifier.jpg" alt="505X Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <h3>5035 / 5050 — 10/12L/day</h3>
-        <p class="model-range">Entry level compact</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">10/12L/day</span></li>
-          <li><span class="label">Refrigerant</span><span class="value">R290</span></li>
-          <li><span class="label">Tank</span><span class="value">2.0L</span></li>
-          <li><span class="label">Noise</span><span class="value">&lt;40dB</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5060-hero.jpg" alt="5060 Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <h3>5060 — 12/16/20L/day</h3>
-        <p class="model-range">Mid-range compact</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">12/16/20L/day</span></li>
-          <li><span class="label">Refrigerant</span><span class="value">R290</span></li>
-          <li><span class="label">Tank</span><span class="value">3.5L</span></li>
-          <li><span class="label">Features</span><span class="value">Digital display</span></li>
-        </ul>
-      </div>
+    <div class="catalog-grid">
+      <div class="catalog-card reveal"><div class="prod-card-img"><img src="images/products/ac-product-50.jpg" alt="PAC-50" /></div><div class="catalog-card-body"><h3>PAC-5000</h3><p>7,000 BTU • Single Hose</p><div class="product-spec-compact"><span>7K BTU</span><span>R32</span><span>Single</span></div></div></div>
+      <div class="catalog-card reveal reveal-delay-1"><div class="prod-card-img"><img src="images/products/ac-product-51.jpg" alt="PAC-51" /></div><div class="catalog-card-body"><h3>PAC-5100</h3><p>8,000 BTU • Single Hose</p><div class="product-spec-compact"><span>8K BTU</span><span>R32</span><span>Single</span></div></div></div>
+      <div class="catalog-card reveal reveal-delay-2"><div class="prod-card-img"><img src="images/products/ac-product-52.jpg" alt="PAC-52" /></div><div class="catalog-card-body"><h3>PAC-5200</h3><p>10,000 BTU • Dual Hose</p><div class="product-spec-compact"><span>10K BTU</span><span>R32</span><span>Dual</span></div></div></div>
+      <div class="catalog-card reveal"><div class="prod-card-img"><img src="images/products/ac-product-53.jpg" alt="PAC-53" /></div><div class="catalog-card-body"><h3>PAC-5300</h3><p>10,000 BTU • Smart</p><div class="product-spec-compact"><span>10K BTU</span><span>Wi-Fi</span><span>Dual</span></div></div></div>
+      <div class="catalog-card reveal reveal-delay-1"><div class="prod-card-img"><img src="images/products/ac-product-55.jpg" alt="PAC-55" /></div><div class="catalog-card-body"><h3>PAC-5500</h3><p>12,000 BTU • Dual Hose</p><div class="product-spec-compact"><span>12K BTU</span><span>R32</span><span>Dual</span></div></div></div>
+      <div class="catalog-card reveal reveal-delay-2"><div class="prod-card-img"><img src="images/products/ac-product-56.jpg" alt="PAC-56" /></div><div class="catalog-card-body"><h3>PAC-5600</h3><p>12,000 BTU • Smart</p><div class="product-spec-compact"><span>12K BTU</span><span>Wi-Fi</span><span>Inverter</span></div></div></div>
+      <div class="catalog-card reveal"><div class="prod-card-img"><img src="images/products/ac-product-61.jpg" alt="PAC-61" /></div><div class="catalog-card-body"><h3>PAC-6100</h3><p>14,000 BTU • Dual Hose</p><div class="product-spec-compact"><span>14K BTU</span><span>R32</span><span>Dual</span></div></div></div>
+      <div class="catalog-card reveal reveal-delay-1"><div class="prod-card-img"><img src="images/products/ac-product-62.jpg" alt="PAC-62" /></div><div class="catalog-card-body"><h3>PAC-6200</h3><p>14,000 BTU • Smart</p><div class="product-spec-compact"><span>14K BTU</span><span>Wi-Fi</span><span>Inverter</span></div></div></div>
+      <div class="catalog-card reveal reveal-delay-2"><div class="prod-card-img"><img src="images/products/ac-product-65.jpg" alt="PAC-65" /></div><div class="catalog-card-body"><h3>PAC-6500</h3><p>18,000 BTU • High Capacity</p><div class="product-spec-compact"><span>18K BTU</span><span>R32</span><span>Dual</span></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ==================== 516X / 518X / 511X ==================== -->
-<section class="prod-section" id="series-supplement">
-  <div class="prod-section-header">
-    <h2>📋 516X / 518X / 511X Series — Supplement Range</h2>
-    <p class="tagline">10-25L/day · Various designs · Global certification ready</p>
-  </div>
-
-  <div class="prod-grid">
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5160-hero.jpg" alt="5160 Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <h3>516X Series</h3>
-        <p class="model-range">10-25L/day · Multiple models</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">10/16/20/25L</span></li>
-          <li><span class="label">Refrigerant</span><span class="value">R290</span></li>
-          <li><span class="label">Design</span><span class="value">Modern compact</span></li>
-          <li><span class="label">Market</span><span class="value">Global</span></li>
-        </ul>
-      </div>
+<!-- ==================== Industrial ==================== -->
+<section class="section" id="industrial">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">Industrial Solutions</div>
+      <h2 class="heading-1">High-Capacity Industrial Dehumidifiers</h2>
     </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5180-family.jpg" alt="518X Series" /></div>
-      <div class="prod-card-body">
-        <h3>518X Series</h3>
-        <p class="model-range">10/12L/day · Compact series</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">10/12L/day</span></li>
-          <li><span class="label">Power</span><span class="value">180-220W</span></li>
-          <li><span class="label">Tank</span><span class="value">2.0L</span></li>
-          <li><span class="label">Models</span><span class="value">5180-5186</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5110-hero.jpg" alt="5110 Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <h3>511X Series</h3>
-        <p class="model-range">Compact affordable models</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">10/12L/day</span></li>
-          <li><span class="label">Refrigerant</span><span class="value">R290</span></li>
-          <li><span class="label">Features</span><span class="value">Basic/Standard</span></li>
-          <li><span class="label">Application</span><span class="value">Small rooms</span></li>
-        </ul>
-      </div>
+    <div class="catalog-grid">
+      <div class="catalog-card reveal"><div class="prod-card-img"><img src="images/products/5310-hero.jpg" alt="5310" /></div><div class="catalog-card-body"><h3>HD-5310</h3><p>120L/Day • Industrial Rotor</p><div class="product-spec-compact"><span>120L/Day</span><span>Rotor</span><span>480V</span></div></div></div>
+      <div class="catalog-card reveal reveal-delay-1"><div class="prod-card-img"><img src="images/products/5320-hero.jpg" alt="5320" /></div><div class="catalog-card-body"><h3>HD-5320</h3><p>80L/Day • Heavy Duty</p><div class="product-spec-compact"><span>80L/Day</span><span>220-240V</span><span>Commercial</span></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ==================== 5270S / 525B ==================== -->
-<section class="prod-section" id="series-additional">
-  <div class="prod-section-header">
-    <h2>🔄 5270S / 525B Series — Special Editions</h2>
-    <p class="tagline">Optimized designs · Latest 2025 updates · Enhanced features</p>
-  </div>
-
-  <div class="prod-grid">
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/5270s-hero.jpg" alt="5270S Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <span class="tag tag-new">2025 Updated</span>
-        <h3>5270S — Optimized Design</h3>
-        <p class="model-range">Enhanced version of 5270</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">20L/day</span></li>
-          <li><span class="label">Improvements</span><span class="value">Quieter, more efficient</span></li>
-          <li><span class="label">Refrigerant</span><span class="value">R290</span></li>
-          <li><span class="label">Market</span><span class="value">EU, UK, AU</span></li>
-        </ul>
-      </div>
+<!-- ==================== FUDA Series ==================== -->
+<section class="section section-alt" id="fuda">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">FUDA Series</div>
+      <h2 class="heading-1">FUDA Intelligent Technology Products</h2>
+      <p class="text-secondary">Premium dehumidifier series manufactured by Ningbo Fuda Intelligent Technology.</p>
     </div>
-    <div class="prod-card">
-      <div class="prod-card-img"><img src="images/products/525b-hero.jpg" alt="525B Dehumidifier" /></div>
-      <div class="prod-card-body">
-        <span class="tag tag-new">New Variant</span>
-        <h3>525B Series</h3>
-        <p class="model-range">Alternative design variant</p>
-        <ul class="spec-list">
-          <li><span class="label">Capacity</span><span class="value">16/20L/day</span></li>
-          <li><span class="label">Refrigerant</span><span class="value">R290</span></li>
-          <li><span class="label">Design</span><span class="value">Sleek, modern</span></li>
-          <li><span class="label">MOQ</span><span class="value">From 200 pcs</span></li>
-        </ul>
-      </div>
+    <div class="catalog-grid">
+      <div class="catalog-card reveal"><div class="prod-card-img"><img src="images/products/fuda-cover.jpg" alt="FUDA Cover" /></div><div class="catalog-card-body"><h3>FUDA Dehumidifier</h3><p>Premium Series • OEM Ready</p></div></div>
+      <div class="catalog-card reveal reveal-delay-1"><div class="prod-card-img"><img src="images/products/fuda-product-23.jpg" alt="FUDA 23" /></div><div class="catalog-card-body"><h3>FUDA-23</h3><p>20L/Day • Compact</p></div></div>
+      <div class="catalog-card reveal reveal-delay-2"><div class="prod-card-img"><img src="images/products/fuda-product-68.jpg" alt="FUDA 68" /></div><div class="catalog-card-body"><h3>FUDA-68</h3><p>30L/Day • Premium</p></div></div>
+      <div class="catalog-card reveal"><div class="prod-card-img"><img src="images/products/fuda-product-73.jpg" alt="FUDA 73" /></div><div class="catalog-card-body"><h3>FUDA-73</h3><p>30L/Day • Smart</p></div></div>
+      <div class="catalog-card reveal reveal-delay-1"><div class="prod-card-img"><img src="images/products/fuda-product-79.jpg" alt="FUDA 79" /></div><div class="catalog-card-body"><h3>FUDA-79</h3><p>50L/Day • Commercial</p></div></div>
+      <div class="catalog-card reveal reveal-delay-2"><div class="prod-card-img"><img src="images/products/fuda-product-family.jpg" alt="FUDA Family" /></div><div class="catalog-card-body"><h3>FUDA Family</h3><p>Complete Series Overview</p></div></div>
+      <div class="catalog-card reveal"><div class="prod-card-img"><img src="images/products/fuda-factory-1.jpg" alt="FUDA Factory" /></div><div class="catalog-card-body"><h3>FUDA Factory</h3><p>Production Facility</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ==================== FACTORY ==================== -->
-<section class="prod-section" id="factory">
-  <div class="prod-section-header">
-    <h2>🏭 Factory & Quality</h2>
-    <p class="tagline">200,000m² smart manufacturing facility · 68+ QC professionals · TUV SUD certified lab</p>
-  </div>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
-    <div style="border-radius:12px;overflow:hidden;">
-      <img src="images/factory-workshop.png" alt="Factory workshop" style="width:100%;aspect-ratio:4/3;object-fit:cover;" />
-      <p style="font-size:0.8rem;color:var(--color-text-secondary);margin-top:6px;">📸 Smart manufacturing workshop</p>
+<!-- ==================== AC Lineup ==================== -->
+<section class="section" id="ac">
+  <div class="container">
+    <div class="section-header center">
+      <div class="section-label">AC Lineup</div>
+      <h2 class="heading-1">Portable AC Product Range</h2>
     </div>
-    <div style="border-radius:12px;overflow:hidden;">
-      <img src="images/factory-lab.jpg" alt="Quality lab" style="width:100%;aspect-ratio:4/3;object-fit:cover;" />
-      <p style="font-size:0.8rem;color:var(--color-text-secondary);margin-top:6px;">🔬 TUV SUD certified testing lab</p>
-    </div>
-    <div style="border-radius:12px;overflow:hidden;">
-      <img src="images/factory-showroom.jpg" alt="Showroom" style="width:100%;aspect-ratio:4/3;object-fit:cover;" />
-      <p style="font-size:0.8rem;color:var(--color-text-secondary);margin-top:6px;">🏪 Product showroom</p>
-    </div>
-    <div style="border-radius:12px;overflow:hidden;">
-      <img src="images/factory-team.jpg" alt="Team" style="width:100%;aspect-ratio:4/3;object-fit:cover;" />
-      <p style="font-size:0.8rem;color:var(--color-text-secondary);margin-top:6px;">👥 Export team</p>
+    <div class="catalog-grid">
+      <div class="catalog-card reveal"><div class="prod-card-img"><img src="images/products/ac-lineup-21.jpg" alt="AC Lineup" /></div><div class="catalog-card-body"><h3>AC Lineup</h3><p>Complete Portable AC Range</p></div></div>
+      <div class="catalog-card reveal reveal-delay-1"><div class="prod-card-img"><img src="images/products/ac-scene-60.jpg" alt="AC Scene" /></div><div class="catalog-card-body"><h3>AC Application</h3><p>Real-world Installation</p></div></div>
+      <div class="catalog-card reveal reveal-delay-2"><div class="prod-card-img"><img src="images/products/ac-scene-73.jpg" alt="AC Scene 73" /></div><div class="catalog-card-body"><h3>AC Installation</h3><p>Commercial Application</p></div></div>
+      <div class="catalog-card reveal"><div class="prod-card-img"><img src="images/products/ac-factory-5.jpg" alt="AC Factory" /></div><div class="catalog-card-body"><h3>AC Production</h3><p>Manufacturing Line</p></div></div>
     </div>
   </div>
 </section>
 
-
-<!-- ==================== FUDA CATALOG PREVIEW ==================== -->
-<section class="prod-section" style="padding:32px 0;">
-  <div class="container-wide">
-    <div style="border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#0b1424,#1a2744);color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:0;">
-      <div style="overflow:hidden;min-height:300px;">
-        <img src="images/products/fuda-cover.jpg" alt="FUDA Catalog" style="width:100%;height:100%;object-fit:cover;" />
-      </div>
-      <div style="padding:40px;display:flex;flex-direction:column;justify-content:center;">
-        <span class="tag tag-new" style="align-self:flex-start;">FUDA 2026</span>
-        <h3 style="color:#fff;font-size:1.5rem;margin:12px 0 8px;">FUDA Company Introduction</h3>
-        <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;line-height:1.7;margin-bottom:20px;">Complete company profile with full product range — dehumidifiers, portable AC, OEM capabilities, factory tour, and certification details.</p>
-        <a href="mailto:evin.ho@yoozor.com?subject=Request%20FUDA%202026%20Full%20Catalog" class="btn btn-gold" style="align-self:flex-start;">📥 Request Full Catalog</a>
-      </div>
-    </div>
+<!-- CTA -->
+<section class="section section-dark" style="text-align:center;">
+  <div class="container">
+    <h2 class="heading-1" style="color:#fff;">Interested in a Product?</h2>
+    <p style="color:var(--color-text-on-dark-secondary);max-width:540px;margin:12px auto 32px;">
+      Contact our sales team for pricing, samples, and customization options.
+    </p>
+    <a href="contact.html" class="btn btn-primary btn-lg">Request a Quote</a>
   </div>
 </section>
 
-<!-- ==================== CERTIFICATIONS ==================== -->
-<section class="prod-section" style="background:#f8faff;padding:48px 0;">
-  <div class="prod-section-header">
-    <h2>✅ Global Certifications</h2>
-    <p class="tagline">Factory-direct with full international certification management</p>
-  </div>
-  <div class="cert-grid">
-    <span class="cert-badge"><span class="flag">🇺🇸</span>ETL</span>
-    <span class="cert-badge"><span class="flag">🇺🇸</span>Energy Star</span>
-    <span class="cert-badge"><span class="flag">🇺🇸</span>DOE</span>
-    <span class="cert-badge"><span class="flag">🇪🇺</span>CE</span>
-    <span class="cert-badge"><span class="flag">🇬🇧</span>UKCA</span>
-    <span class="cert-badge"><span class="flag">🇦🇺</span>RCM</span>
-    <span class="cert-badge"><span class="flag">🇦🇺</span>GEMS</span>
-    <span class="cert-badge"><span class="flag">🇪🇺</span>GS</span>
-    <span class="cert-badge"><span class="flag">🌍</span>RoHS</span>
-    <span class="cert-badge"><span class="flag">🌍</span>REACH</span>
-    <span class="cert-badge"><span class="flag">🇨🇳</span>CCC</span>
-    <span class="cert-badge">ISO 9001</span>
-    <span class="cert-badge">BSCI</span>
-    <span class="cert-badge"><span class="flag">🇯🇵</span>PSE</span>
-  </div>
-</section>
-
-</div><!-- /container-wide -->
-
-<!-- ==================== DOWNLOAD CTA ==================== -->
-<section class="download-cta" id="downloads">
-  <h2>📥 Download Product Resources</h2>
-  <p>Get the full FUDA catalog, certification documents, spec sheets, and product images.</p>
-  <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
-    <a href="mailto:evin.ho@yoozor.com?subject=Request%20Full%20Catalog%20-%20Yoozor" class="btn btn-gold btn-lg">📄 Request Full Catalog</a>
-    <a href="mailto:evin.ho@yoozor.com?subject=Request%20Certifications%20-%20Yoozor" class="btn btn-outline-light btn-lg">📜 Request Certifications</a>
-    <a href="mailto:evin.ho@yoozor.com?subject=Request%20OEM%20Quote%20-%20Yoozor" class="btn btn-outline-light btn-lg">📋 Request OEM Quote</a>
-  </div>
-</section>
-
-<!-- Footer -->
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="nav-logo" style="color: #fff;">
-          <img src="images/yoozor-mark.svg" alt="Yoozor" class="nav-mark" />
-          Yoozor
+        <div class="nav-logo" style="color:#fff;"><img src="images/yoozor-mark.svg" alt="Yoozor" class="nav-mark" /> Yoozor</div>
+        <p>Ningbo Yoozor Trading Co., Ltd.<br />Authorized Export Partner of<br />Ningbo Fuda Intelligent Technology Co., Ltd.</p>
+        <div class="footer-social">
+          <a href="mailto:evin.ho@yoozor.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg></a>
+          <a href="https://wa.me/8612345678901" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="8" y1="10" x2="8" y2="16"/><line x1="8" y1="7" x2="8.01" y2="7"/><line x1="12" y1="16" x2="12" y2="10"/><path d="M16 16v-3a2 2 0 0 0-4 0"/></svg></a>
         </div>
-        <p>Ningbo Yoozor Trading Co., Ltd.<br />
-        Authorized Export Partner of<br />
-        Ningbo Fuda Intelligent Technology Co., Ltd.</p>
       </div>
-      <div>
-        <h4>Products</h4>
-        <ul>
-          <li><a href="catalog.html#series-529x">529X Premium</a></li>
-          <li><a href="catalog.html#series-527x">527X Series</a></li>
-          <li><a href="catalog.html#series-525x">525X Series</a></li>
-          <li><a href="catalog.html#series-53x">53X North America</a></li>
-          <li><a href="catalog.html#series-529x">529X Premium</a></li>
-          <li><a href="catalog.html#series-527x">527X Series</a></li>
-          <li><a href="catalog.html#series-525x">525X Series</a></li>
-          <li><a href="catalog.html#series-53x">53X North America</a></li>
-          <li><a href="catalog.html#portable-ac">Portable AC</a></li>
-          <li><a href="catalog.html#series-508x">508X/509X Series</a></li>
-          <li><a href="catalog.html#series-compact">Compact Series</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/about.html">About Us</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/services.html">OEM/ODM</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:evin.ho@yoozor.com">evin.ho@yoozor.com</a></li>
-          <li><a href="https://wa.me/8612345678901">WhatsApp</a></li>
-          <li><a>Ningbo, Zhejiang, China</a></li>
-        </ul>
-      </div>
+      <div><h4>Products</h4><ul><li><a href="products.html">Portable AC</a></li><li><a href="#dehumidifiers">Dehumidifiers</a></li><li><a href="services.html">OEM/ODM</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="catalog.html">Catalog</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="mailto:evin.ho@yoozor.com">Email</a></li><li><a href="https://wa.me/8612345678901">WhatsApp</a></li><li><a href="contact.html">Contact Form</a></li></ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Ningbo Yoozor Trading Co., Ltd.</span>
-      <span>
-        <a href="/" style="color:rgba(255,255,255,0.35)">English</a>
-        <span style="color:rgba(255,255,255,0.2)"> · </span>
-        <a href="/cn/" style="color:rgba(255,255,255,0.35)">中文</a>
-      </span>
+      <span>© <span id="year">2026</span> Ningbo Yoozor Trading Co., Ltd.</span>
+      <span><a href="/">English</a> · <a href="/cn/">中文</a> · <a href="privacy-policy.html">Privacy</a></span>
     </div>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
-<!-- Sticky WhatsApp Bar -->
 <div class="sticky-wa">
   <a href="https://wa.me/8612345678901" target="_blank" class="sticky-wa-link" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" width="28" height="28"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" stroke="#fff" stroke-width="1.5" fill="none"/></svg>
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
     <span>Chat</span>
   </a>
 </div>
+
+<script src="js/main.js"></script>
 </body>
 </html>
