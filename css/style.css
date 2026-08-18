@@ -1233,6 +1233,8 @@ footer ul a:hover { color: var(--color-gold-light); }
   .cert-grid { grid-template-columns: 1fr; }
   .testimonial-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .contact-form { min-width: 0; }
 
   .about-image-grid { gap: 8px; }
 

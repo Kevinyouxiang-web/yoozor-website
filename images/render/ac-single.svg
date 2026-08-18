@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Single hose portable air conditioner render">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbfcfe"/>
+      <stop offset="1" stop-color="#e9edf4"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d9dfe8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="600" cy="280" r="430" fill="#ffffff" opacity="0.48"/>
+  <ellipse cx="600" cy="706" rx="330" ry="42" fill="#1a1a2e" opacity="0.08"/>
+  
+  <g>
+    <path d="M 310 230 C 210 212, 168 276, 118 264" fill="none" stroke="#7d8b99" stroke-width="30" stroke-linecap="round" opacity="0.92"/><path d="M 310 230 C 210 212, 168 276, 118 264" fill="none" stroke="#eef2f6" stroke-width="8" stroke-linecap="round" opacity="0.55"/>
+    <rect x="330" y="150" width="540" height="540" rx="48" fill="url(#body)"/>
+    <rect x="330" y="150" width="540" height="540" rx="48" fill="none" stroke="#c4ccd7" stroke-width="2"/>
+    <rect x="374" y="190" width="452" height="126" rx="20" fill="#f2f5f9"/>
+    <rect x="404" y="214" width="392" height="72" rx="14" fill="#0d1420"/>
+    <rect x="426" y="240" width="30" height="10" rx="4" fill="#d7e5ff"/>
+    <rect x="466" y="240" width="30" height="10" rx="4" fill="#d7e5ff"/>
+    <rect x="506" y="240" width="30" height="10" rx="4" fill="#d7e5ff"/>
+    <circle cx="420" cy="292" r="9" fill="#2d8a6e"/>
+    <circle cx="458" cy="292" r="9" fill="#c75b39"/>
+    <circle cx="496" cy="292" r="9" fill="#c9a84c"/>
+    <circle cx="758" cy="236" r="26" fill="none" stroke="#8b95a5" stroke-width="5"/>
+    <rect x="374" y="352" width="452" height="220" rx="28" fill="#e9edf4"/>
+    <rect x="394" y="374" width="412" height="176" rx="20" fill="#f5f7fa"/>
+    <rect x="414" y="404" width="372" height="18" rx="9" fill="#c7cfda"/>
+    <rect x="414" y="438" width="372" height="18" rx="9" fill="#c7cfda"/>
+    <rect x="414" y="472" width="372" height="18" rx="9" fill="#c7cfda"/>
+    <rect x="414" y="506" width="372" height="18" rx="9" fill="#c7cfda"/>
+    <rect x="330" y="150" width="540" height="540" rx="48" fill="url(#shine)" opacity="0.2"/>
+    <circle cx="420" cy="714" r="24" fill="#3a4350"/>
+    <circle cx="780" cy="714" r="24" fill="#3a4350"/>
+  </g>
+
+</svg>
