@@ -117,16 +117,60 @@ document.addEventListener('DOMContentLoaded', function () {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  // --- Contact form handler (local UI only) ---
-  const contactForm = document.getElementById('contactForm');
-  const formSuccess = document.getElementById('formSuccess');
-  if (contactForm && formSuccess) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      // In production, send via Formspree or similar
-      contactForm.style.display = 'none';
-      formSuccess.classList.add('show');
+  // --- Contact forms: open a pre-filled email instead of pretending to send ---
+  document.querySelectorAll('form[action="#"]').forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const values = {};
+      form.querySelectorAll('input, select, textarea').forEach(function (field) {
+        if (!field.name || field.disabled) return;
+        if ((field.type === 'checkbox' || field.type === 'radio') && !field.checked) return;
+        values[field.name] = field.value.trim();
+      });
+
+      const fieldLabels = {
+        name: 'Name',
+        company: 'Company',
+        email: 'Email',
+        phone: 'Phone',
+        product: 'Product interest',
+        market: 'Target market',
+        quantity: 'Estimated quantity',
+        subject: 'Subject',
+        message: 'Message'
+      };
+      const isChinese = document.documentElement.lang === 'zh-CN';
+
+      const lines = Object.keys(values)
+        .filter(function (key) { return values[key]; })
+        .map(function (key) {
+          return (fieldLabels[key] || key) + ': ' + values[key];
+        });
+
+      const subject = (isChinese ? 'Yoozor 询盘 - ' : 'Yoozor inquiry from ') + (values.name || values.email || 'yoozor.com');
+      const body = [
+        isChinese ? '来自 yoozor.com 的新询盘' : 'New inquiry from yoozor.com',
+        '------------------------------',
+        lines.join('\n'),
+        '------------------------------',
+        (isChinese ? '提交页面：' : 'Submitted from: ') + window.location.href
+      ].join('\n');
+
+      const mailtoUrl = 'mailto:evin.ho@yoozor.com' +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+
+      const feedback = form.querySelector('.form-feedback');
+      if (feedback) {
+        feedback.textContent = isChinese
+          ? '系统将打开您的邮箱，请在邮件中点击发送以完成询盘。'
+          : 'Your email app should open now. Press Send there to complete the inquiry.';
+        feedback.classList.add('visible');
+      }
+
+      window.location.href = mailtoUrl;
     });
-  }
+  });
 
 });
